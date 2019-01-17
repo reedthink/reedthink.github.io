@@ -96,17 +96,18 @@
 
 
 
-  <meta name="description" content="repeat and accumulation">
+  <meta name="description" content="题目链接题意很简单：输入n 然后输入n个字符串，求最大的i， 要求1 ~ i-1 中至少有一个串不是i的子串思路：直接遍历就行，两个for循环嵌套（注意，都是自上而下开始），用strstr判断是不是子串，若是，就打上标记（此串相当于废弃了，即不需要再判断），这样就减少了对strstr的调用。针对这道水题的数据来说，这样做大大减少了时间，让我们逃出了TLE的泥沼代码：1234567891011121">
+<meta name="keywords" content="字符串">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hdu 5510 Bazinga （字符串水题）">
 <meta property="og:url" content="http://yoursite.com/2019/01/17/hdu-5510-Bazinga-（字符串水题）/index.html">
 <meta property="og:site_name" content="zzuli_hanjk&#39;s blog">
-<meta property="og:description" content="repeat and accumulation">
+<meta property="og:description" content="题目链接题意很简单：输入n 然后输入n个字符串，求最大的i， 要求1 ~ i-1 中至少有一个串不是i的子串思路：直接遍历就行，两个for循环嵌套（注意，都是自上而下开始），用strstr判断是不是子串，若是，就打上标记（此串相当于废弃了，即不需要再判断），这样就减少了对strstr的调用。针对这道水题的数据来说，这样做大大减少了时间，让我们逃出了TLE的泥沼代码：1234567891011121">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-17T13:42:59.383Z">
+<meta property="og:updated_time" content="2019-01-17T14:14:34.731Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hdu 5510 Bazinga （字符串水题）">
-<meta name="twitter:description" content="repeat and accumulation">
+<meta name="twitter:description" content="题目链接题意很简单：输入n 然后输入n个字符串，求最大的i， 要求1 ~ i-1 中至少有一个串不是i的子串思路：直接遍历就行，两个for循环嵌套（注意，都是自上而下开始），用strstr判断是不是子串，若是，就打上标记（此串相当于废弃了，即不需要再判断），这样就减少了对strstr的调用。针对这道水题的数据来说，这样做大大减少了时间，让我们逃出了TLE的泥沼代码：1234567891011121">
 
 
 
@@ -348,9 +349,13 @@
                 
               
 
-              <time title="创建时间：2019-01-17 21:42:59" itemprop="dateCreated datePublished" datetime="2019-01-17T21:42:59+08:00">2019-01-17</time>
+              <time title="创建时间：2019-01-17 21:42:59 / 修改时间：22:14:34" itemprop="dateCreated datePublished" datetime="2019-01-17T21:42:59+08:00">2019-01-17</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -383,7 +388,8 @@
       
 
       
-        
+        <p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5510" target="_blank" rel="noopener">题目链接</a><br>题意很简单：输入n 然后输入n个字符串，求最大的i， 要求1 ~ i-1 中至少有一个串不是i的子串<br>思路：直接遍历就行，两个for循环嵌套（注意，都是自上而下开始），用strstr判断是不是子串，若是，就打上标记（此串相当于废弃了，即不需要再判断），这样就减少了对strstr的调用。针对这道水题的数据来说，这样做大大减少了时间，让我们逃出了TLE的泥沼<br>代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">char</span> ch[<span class="number">501</span>][<span class="number">2002</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; T; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%s"</span>, ch[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> idx[<span class="number">501</span>] = &#123;&#125;;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> l = <span class="number">1</span>; l &lt; n; l++)</span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; l; k++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (idx[k])</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">if</span> (!<span class="built_in">strstr</span>(ch[l], ch[k]))</span><br><span class="line">                &#123;</span><br><span class="line">                    ans = l + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    idx[k] = <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case #%d: %d\n"</span>, i + <span class="number">1</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -403,6 +409,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/字符串/" rel="tag"># 字符串</a>
+          
+        </div>
       
 
       
@@ -490,6 +502,19 @@
 
               
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
               
             </nav>
           
