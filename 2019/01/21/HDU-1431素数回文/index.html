@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="gQnnfi1nVC">
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="题目点这里">
+<meta name="keywords" content="水题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HDU-1431素数回文">
+<meta property="og:url" content="http://yoursite.com/2019/01/21/HDU-1431素数回文/index.html">
+<meta property="og:site_name" content="zzuli_hanjk&#39;s blog">
+<meta property="og:description" content="题目点这里">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-21T12:31:29.115Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HDU-1431素数回文">
+<meta name="twitter:description" content="题目点这里">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/21/HDU-1431素数回文/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>HDU-1431素数回文 | zzuli_hanjk's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zzuli_hanjk's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/21/HDU-1431素数回文/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zzuli_hanjk">
+      <meta itemprop="description" content="repeat and accumulation">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zzuli_hanjk's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HDU-1431素数回文
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-21 19:41:32 / 修改时间：20:31:29" itemprop="dateCreated datePublished" datetime="2019-01-21T19:41:32+08:00">2019-01-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="题目点这里"><a href="#题目点这里" class="headerlink" title="题目点这里"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1431" target="_blank" rel="noopener">题目点这里</a></h2><a id="more"></a>
+<h2 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h2><p>　　这个题目是素数判断与回文判断的简单综合，但是题目给的范围很大，10的8次方。这么大的范围，无论是判断素数还是回文，都产生了不小的困难。我的做法是，先在本地暴力跑一下，跑完之后，发现范围内最大的回文素数为<font color="#dd0000">9989899</font> ，那么这时候我们有两个选择，一个是把实际范围缩小到10的7次方，用素数筛法进行判断素数，之后判断回文；第二个方法就是直接把这700多个回文素数复制到数组里，然后提交（有的题目非常适合这种做法：在本地打好表，直接复制进去，提交😂）</p>
+<h2 id="第一种方法："><a href="#第一种方法：" class="headerlink" title="第一种方法："></a>第一种方法：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;//先筛选素数，再判断回文，然后打表</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">10000007</span> ;</span><br><span class="line"><span class="keyword">bool</span> vis[maxn];    <span class="comment">// i是合数vis为1，i是素数，vis为0.</span></span><br><span class="line"><span class="keyword">int</span> prime[<span class="number">700000</span>];</span><br><span class="line"><span class="keyword">int</span> biao[<span class="number">8000</span>];</span><br><span class="line"><span class="keyword">char</span> s[<span class="number">15</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sieve</span><span class="params">(<span class="keyword">int</span> n)</span></span>;<span class="comment">//埃氏筛法，给合数打上标记</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gen</span><span class="params">(<span class="keyword">int</span> n)</span></span>;<span class="comment">//return number of prime numbers</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span></span>; <span class="comment">//判断回文</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c,t0=<span class="number">0</span>,a,b;</span><br><span class="line">    c = gen(maxn);  <span class="comment">//c=gen（x）,求出所有小于x的素数,c是素数数量</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;c;i++) <span class="comment">// 打出回文素数表</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(isPalindrome(prime[i]))</span><br><span class="line">          &#123; </span><br><span class="line">                biao[t0++]=prime[i];</span><br><span class="line">                <span class="comment">// cout&lt;&lt;prime[i]&lt;&lt;' ';</span></span><br><span class="line">          &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b)!=EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span> ;i&lt;t0 ;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(biao[i]&gt;=a &amp;&amp; biao[i]&lt;=b)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,biao[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sieve</span><span class="params">(<span class="keyword">int</span> n)</span><span class="comment">//埃氏筛法，给合数打上标记</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m = (<span class="keyword">int</span>)<span class="built_in">sqrt</span>(n + <span class="number">1</span>);</span><br><span class="line">    vis[<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>; i &lt;= m; i += <span class="number">2</span>)<span class="comment">//look line 34. 直接跳过偶数，减少一半的工作量，算法的威力由此可见</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!vis[i])</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i * i; j &lt;= n; j += i)</span><br><span class="line">                vis[j] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(i * i &gt; n)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gen</span><span class="params">(<span class="keyword">int</span> n)</span><span class="comment">//return number of prime numbers</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    sieve(n);</span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">1</span>;</span><br><span class="line">    prime[<span class="number">0</span>]=<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>; i &lt;= n; i += <span class="number">2</span>) <span class="comment">//skip even numbers</span></span><br><span class="line">        <span class="keyword">if</span>(!vis[i])</span><br><span class="line">            prime[c++] = i; </span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">sprintf</span>(s,<span class="string">"%d"</span>,x);</span><br><span class="line">    <span class="keyword">int</span> len=<span class="built_in">strlen</span>(s),f=<span class="number">1</span>,i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;len/<span class="number">2</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]==s[len<span class="number">-1</span>-i])</span><br><span class="line">            ;</span><br><span class="line">        <span class="keyword">else</span> f=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第二种方法："><a href="#第二种方法：" class="headerlink" title="第二种方法："></a>第二种方法：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> biao[<span class="number">800</span>]=&#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">101</span>,<span class="number">131</span>,<span class="number">151</span>,<span class="number">181</span>,<span class="number">191</span>,<span class="number">313</span>,<span class="number">353</span>,<span class="number">373</span>,<span class="number">383</span>,<span class="number">727</span>,<span class="number">757</span>,<span class="number">787</span>,<span class="number">797</span>,<span class="number">919</span>,<span class="number">929</span>,<span class="number">10301</span>,<span class="number">10501</span>,<span class="number">10601</span>,<span class="number">11311</span>,<span class="number">11411</span>,<span class="number">12421</span>,<span class="number">12721</span>,<span class="number">12821</span>,<span class="number">13331</span>,<span class="number">13831</span>,<span class="number">13931</span>,<span class="number">14341</span>,<span class="number">14741</span>,<span class="number">15451</span>,<span class="number">15551</span>,<span class="number">16061</span>,<span class="number">16361</span>,<span class="number">16561</span>,<span class="number">16661</span>,<span class="number">17471</span>,<span class="number">17971</span>,<span class="number">18181</span>,<span class="number">18481</span>,<span class="number">19391</span>,<span class="number">19891</span>,<span class="number">19991</span>,<span class="number">30103</span>,<span class="number">30203</span>,<span class="number">30403</span>,<span class="number">30703</span>,<span class="number">30803</span>,<span class="number">31013</span>,<span class="number">31513</span>,<span class="number">32323</span>,<span class="number">32423</span>,<span class="number">33533</span>,<span class="number">34543</span>,<span class="number">34843</span>,<span class="number">35053</span>,<span class="number">35153</span>,<span class="number">35353</span>,<span class="number">35753</span>,<span class="number">36263</span>,<span class="number">36563</span>,<span class="number">37273</span>,<span class="number">37573</span>,<span class="number">38083</span>,<span class="number">38183</span>,<span class="number">38783</span>,<span class="number">39293</span>,<span class="number">70207</span>,<span class="number">70507</span>,<span class="number">70607</span>,<span class="number">71317</span>,<span class="number">71917</span>,<span class="number">72227</span>,<span class="number">72727</span>,<span class="number">73037</span>,<span class="number">73237</span>,<span class="number">73637</span>,<span class="number">74047</span>,<span class="number">74747</span>,<span class="number">75557</span>,<span class="number">76367</span>,<span class="number">76667</span>,<span class="number">77377</span>,<span class="number">77477</span>,<span class="number">77977</span>,<span class="number">78487</span>,<span class="number">78787</span>,<span class="number">78887</span>,<span class="number">79397</span>,<span class="number">79697</span>,<span class="number">79997</span>,<span class="number">90709</span>,<span class="number">91019</span>,<span class="number">93139</span>,<span class="number">93239</span>,<span class="number">93739</span>,<span class="number">94049</span>,<span class="number">94349</span>,<span class="number">94649</span>,<span class="number">94849</span>,<span class="number">94949</span>,<span class="number">95959</span>,<span class="number">96269</span>,<span class="number">96469</span>,<span class="number">96769</span>,<span class="number">97379</span>,<span class="number">97579</span>,<span class="number">97879</span>,<span class="number">98389</span>,<span class="number">98689</span>,<span class="number">1003001</span>,<span class="number">1008001</span>,<span class="number">1022201</span>,<span class="number">1028201</span>,<span class="number">1035301</span>,<span class="number">1043401</span>,<span class="number">1055501</span>,<span class="number">1062601</span>,<span class="number">1065601</span>,<span class="number">1074701</span>,<span class="number">1082801</span>,<span class="number">1085801</span>,<span class="number">1092901</span>,<span class="number">1093901</span>,<span class="number">1114111</span>,<span class="number">1117111</span>,<span class="number">1120211</span>,<span class="number">1123211</span>,<span class="number">1126211</span>,<span class="number">1129211</span>,<span class="number">1134311</span>,<span class="number">1145411</span>,<span class="number">1150511</span>,<span class="number">1153511</span>,<span class="number">1160611</span>,<span class="number">1163611</span>,<span class="number">1175711</span>,<span class="number">1177711</span>,<span class="number">1178711</span>,<span class="number">1180811</span>,<span class="number">1183811</span>,<span class="number">1186811</span>,<span class="number">1190911</span>,<span class="number">1193911</span>,<span class="number">1196911</span>,<span class="number">1201021</span>,<span class="number">1208021</span>,<span class="number">1212121</span>,<span class="number">1215121</span>,<span class="number">1218121</span>,<span class="number">1221221</span>,<span class="number">1235321</span>,<span class="number">1242421</span>,<span class="number">1243421</span>,<span class="number">1245421</span>,<span class="number">1250521</span>,<span class="number">1253521</span>,<span class="number">1257521</span>,<span class="number">1262621</span>,<span class="number">1268621</span>,<span class="number">1273721</span>,<span class="number">1276721</span>,<span class="number">1278721</span>,<span class="number">1280821</span>,<span class="number">1281821</span>,<span class="number">1286821</span>,<span class="number">1287821</span>,<span class="number">1300031</span>,<span class="number">1303031</span>,<span class="number">1311131</span>,<span class="number">1317131</span>,<span class="number">1327231</span>,<span class="number">1328231</span>,<span class="number">1333331</span>,<span class="number">1335331</span>,<span class="number">1338331</span>,<span class="number">1343431</span>,<span class="number">1360631</span>,<span class="number">1362631</span>,<span class="number">1363631</span>,<span class="number">1371731</span>,<span class="number">1374731</span>,<span class="number">1390931</span>,<span class="number">1407041</span>,<span class="number">1409041</span>,<span class="number">1411141</span>,<span class="number">1412141</span>,<span class="number">1422241</span>,<span class="number">1437341</span>,<span class="number">1444441</span>,<span class="number">1447441</span>,<span class="number">1452541</span>,<span class="number">1456541</span>,<span class="number">1461641</span>,<span class="number">1463641</span>,<span class="number">1464641</span>,<span class="number">1469641</span>,<span class="number">1486841</span>,<span class="number">1489841</span>,<span class="number">1490941</span>,<span class="number">1496941</span>,<span class="number">1508051</span>,<span class="number">1513151</span>,<span class="number">1520251</span>,<span class="number">1532351</span>,<span class="number">1535351</span>,<span class="number">1542451</span>,<span class="number">1548451</span>,<span class="number">1550551</span>,<span class="number">1551551</span>,<span class="number">1556551</span>,<span class="number">1557551</span>,<span class="number">1565651</span>,<span class="number">1572751</span>,<span class="number">1579751</span>,<span class="number">1580851</span>,<span class="number">1583851</span>,<span class="number">1589851</span>,<span class="number">1594951</span>,<span class="number">1597951</span>,<span class="number">1598951</span>,<span class="number">1600061</span>,<span class="number">1609061</span>,<span class="number">1611161</span>,<span class="number">1616161</span>,<span class="number">1628261</span>,<span class="number">1630361</span>,<span class="number">1633361</span>,<span class="number">1640461</span>,<span class="number">1643461</span>,<span class="number">1646461</span>,<span class="number">1654561</span>,<span class="number">1657561</span>,<span class="number">1658561</span>,<span class="number">1660661</span>,<span class="number">1670761</span>,<span class="number">1684861</span>,<span class="number">1685861</span>,<span class="number">1688861</span>,<span class="number">1695961</span>,<span class="number">1703071</span>,<span class="number">1707071</span>,<span class="number">1712171</span>,<span class="number">1714171</span>,<span class="number">1730371</span>,<span class="number">1734371</span>,<span class="number">1737371</span>,<span class="number">1748471</span>,<span class="number">1755571</span>,<span class="number">1761671</span>,<span class="number">1764671</span>,<span class="number">1777771</span>,<span class="number">1793971</span>,<span class="number">1802081</span>,<span class="number">1805081</span>,<span class="number">1820281</span>,<span class="number">1823281</span>,<span class="number">1824281</span>,<span class="number">1826281</span>,<span class="number">1829281</span>,<span class="number">1831381</span>,<span class="number">1832381</span>,<span class="number">1842481</span>,<span class="number">1851581</span>,<span class="number">1853581</span>,<span class="number">1856581</span>,<span class="number">1865681</span>,<span class="number">1876781</span>,<span class="number">1878781</span>,<span class="number">1879781</span>,<span class="number">1880881</span>,<span class="number">1881881</span>,<span class="number">1883881</span>,<span class="number">1884881</span>,<span class="number">1895981</span>,<span class="number">1903091</span>,<span class="number">1908091</span>,<span class="number">1909091</span>,<span class="number">1917191</span>,<span class="number">1924291</span>,<span class="number">1930391</span>,<span class="number">1936391</span>,<span class="number">1941491</span>,<span class="number">1951591</span>,<span class="number">1952591</span>,<span class="number">1957591</span>,<span class="number">1958591</span>,<span class="number">1963691</span>,<span class="number">1968691</span>,<span class="number">1969691</span>,<span class="number">1970791</span>,<span class="number">1976791</span>,<span class="number">1981891</span>,<span class="number">1982891</span>,<span class="number">1984891</span>,<span class="number">1987891</span>,<span class="number">1988891</span>,<span class="number">1993991</span>,<span class="number">1995991</span>,<span class="number">1998991</span>,<span class="number">3001003</span>,<span class="number">3002003</span>,<span class="number">3007003</span>,<span class="number">3016103</span>,<span class="number">3026203</span>,<span class="number">3064603</span>,<span class="number">3065603</span>,<span class="number">3072703</span>,<span class="number">3073703</span>,<span class="number">3075703</span>,<span class="number">3083803</span>,<span class="number">3089803</span>,<span class="number">3091903</span>,<span class="number">3095903</span>,<span class="number">3103013</span>,<span class="number">3106013</span>,<span class="number">3127213</span>,<span class="number">3135313</span>,<span class="number">3140413</span>,<span class="number">3155513</span>,<span class="number">3158513</span>,<span class="number">3160613</span>,<span class="number">3166613</span>,<span class="number">3181813</span>,<span class="number">3187813</span>,<span class="number">3193913</span>,<span class="number">3196913</span>,<span class="number">3198913</span>,<span class="number">3211123</span>,<span class="number">3212123</span>,<span class="number">3218123</span>,<span class="number">3222223</span>,<span class="number">3223223</span>,<span class="number">3228223</span>,<span class="number">3233323</span>,<span class="number">3236323</span>,<span class="number">3241423</span>,<span class="number">3245423</span>,<span class="number">3252523</span>,<span class="number">3256523</span>,<span class="number">3258523</span>,<span class="number">3260623</span>,<span class="number">3267623</span>,<span class="number">3272723</span>,<span class="number">3283823</span>,<span class="number">3285823</span>,<span class="number">3286823</span>,<span class="number">3288823</span>,<span class="number">3291923</span>,<span class="number">3293923</span>,<span class="number">3304033</span>,<span class="number">3305033</span>,<span class="number">3307033</span>,<span class="number">3310133</span>,<span class="number">3315133</span>,<span class="number">3319133</span>,<span class="number">3321233</span>,<span class="number">3329233</span>,<span class="number">3331333</span>,<span class="number">3337333</span>,<span class="number">3343433</span>,<span class="number">3353533</span>,<span class="number">3362633</span>,<span class="number">3364633</span>,<span class="number">3365633</span>,<span class="number">3368633</span>,<span class="number">3380833</span>,<span class="number">3391933</span>,<span class="number">3392933</span>,<span class="number">3400043</span>,<span class="number">3411143</span>,<span class="number">3417143</span>,<span class="number">3424243</span>,<span class="number">3425243</span>,<span class="number">3427243</span>,<span class="number">3439343</span>,<span class="number">3441443</span>,<span class="number">3443443</span>,<span class="number">3444443</span>,<span class="number">3447443</span>,<span class="number">3449443</span>,<span class="number">3452543</span>,<span class="number">3460643</span>,<span class="number">3466643</span>,<span class="number">3470743</span>,<span class="number">3479743</span>,<span class="number">3485843</span>,<span class="number">3487843</span>,<span class="number">3503053</span>,<span class="number">3515153</span>,<span class="number">3517153</span>,<span class="number">3528253</span>,<span class="number">3541453</span>,<span class="number">3553553</span>,<span class="number">3558553</span>,<span class="number">3563653</span>,<span class="number">3569653</span>,<span class="number">3586853</span>,<span class="number">3589853</span>,<span class="number">3590953</span>,<span class="number">3591953</span>,<span class="number">3594953</span>,<span class="number">3601063</span>,<span class="number">3607063</span>,<span class="number">3618163</span>,<span class="number">3621263</span>,<span class="number">3627263</span>,<span class="number">3635363</span>,<span class="number">3643463</span>,<span class="number">3646463</span>,<span class="number">3670763</span>,<span class="number">3673763</span>,<span class="number">3680863</span>,<span class="number">3689863</span>,<span class="number">3698963</span>,<span class="number">3708073</span>,<span class="number">3709073</span>,<span class="number">3716173</span>,<span class="number">3717173</span>,<span class="number">3721273</span>,<span class="number">3722273</span>,<span class="number">3728273</span>,<span class="number">3732373</span>,<span class="number">3743473</span>,<span class="number">3746473</span>,<span class="number">3762673</span>,<span class="number">3763673</span>,<span class="number">3765673</span>,<span class="number">3768673</span>,<span class="number">3769673</span>,<span class="number">3773773</span>,<span class="number">3774773</span>,<span class="number">3781873</span>,<span class="number">3784873</span>,<span class="number">3792973</span>,<span class="number">3793973</span>,<span class="number">3799973</span>,<span class="number">3804083</span>,<span class="number">3806083</span>,<span class="number">3812183</span>,<span class="number">3814183</span>,<span class="number">3826283</span>,<span class="number">3829283</span>,<span class="number">3836383</span>,<span class="number">3842483</span>,<span class="number">3853583</span>,<span class="number">3858583</span>,<span class="number">3863683</span>,<span class="number">3864683</span>,<span class="number">3867683</span>,<span class="number">3869683</span>,<span class="number">3871783</span>,<span class="number">3878783</span>,<span class="number">3893983</span>,<span class="number">3899983</span>,<span class="number">3913193</span>,<span class="number">3916193</span>,<span class="number">3918193</span>,<span class="number">3924293</span>,<span class="number">3927293</span>,<span class="number">3931393</span>,<span class="number">3938393</span>,<span class="number">3942493</span>,<span class="number">3946493</span>,<span class="number">3948493</span>,<span class="number">3964693</span>,<span class="number">3970793</span>,<span class="number">3983893</span>,<span class="number">3991993</span>,<span class="number">3994993</span>,<span class="number">3997993</span>,<span class="number">3998993</span>,<span class="number">7014107</span>,<span class="number">7035307</span>,<span class="number">7036307</span>,<span class="number">7041407</span>,<span class="number">7046407</span>,<span class="number">7057507</span>,<span class="number">7065607</span>,<span class="number">7069607</span>,<span class="number">7073707</span>,<span class="number">7079707</span>,<span class="number">7082807</span>,<span class="number">7084807</span>,<span class="number">7087807</span>,<span class="number">7093907</span>,<span class="number">7096907</span>,<span class="number">7100017</span>,<span class="number">7114117</span>,<span class="number">7115117</span>,<span class="number">7118117</span>,<span class="number">7129217</span>,<span class="number">7134317</span>,<span class="number">7136317</span>,<span class="number">7141417</span>,<span class="number">7145417</span>,<span class="number">7155517</span>,<span class="number">7156517</span>,<span class="number">7158517</span>,<span class="number">7159517</span>,<span class="number">7177717</span>,<span class="number">7190917</span>,<span class="number">7194917</span>,<span class="number">7215127</span>,<span class="number">7226227</span>,<span class="number">7246427</span>,<span class="number">7249427</span>,<span class="number">7250527</span>,<span class="number">7256527</span>,<span class="number">7257527</span>,<span class="number">7261627</span>,<span class="number">7267627</span>,<span class="number">7276727</span>,<span class="number">7278727</span>,<span class="number">7291927</span>,<span class="number">7300037</span>,<span class="number">7302037</span>,<span class="number">7310137</span>,<span class="number">7314137</span>,<span class="number">7324237</span>,<span class="number">7327237</span>,<span class="number">7347437</span>,<span class="number">7352537</span>,<span class="number">7354537</span>,<span class="number">7362637</span>,<span class="number">7365637</span>,<span class="number">7381837</span>,<span class="number">7388837</span>,<span class="number">7392937</span>,<span class="number">7401047</span>,<span class="number">7403047</span>,<span class="number">7409047</span>,<span class="number">7415147</span>,<span class="number">7434347</span>,<span class="number">7436347</span>,<span class="number">7439347</span>,<span class="number">7452547</span>,<span class="number">7461647</span>,<span class="number">7466647</span>,<span class="number">7472747</span>,<span class="number">7475747</span>,<span class="number">7485847</span>,<span class="number">7486847</span>,<span class="number">7489847</span>,<span class="number">7493947</span>,<span class="number">7507057</span>,<span class="number">7508057</span>,<span class="number">7518157</span>,<span class="number">7519157</span>,<span class="number">7521257</span>,<span class="number">7527257</span>,<span class="number">7540457</span>,<span class="number">7562657</span>,<span class="number">7564657</span>,<span class="number">7576757</span>,<span class="number">7586857</span>,<span class="number">7592957</span>,<span class="number">7594957</span>,<span class="number">7600067</span>,<span class="number">7611167</span>,<span class="number">7619167</span>,<span class="number">7622267</span>,<span class="number">7630367</span>,<span class="number">7632367</span>,<span class="number">7644467</span>,<span class="number">7654567</span>,<span class="number">7662667</span>,<span class="number">7665667</span>,<span class="number">7666667</span>,<span class="number">7668667</span>,<span class="number">7669667</span>,<span class="number">7674767</span>,<span class="number">7681867</span>,<span class="number">7690967</span>,<span class="number">7693967</span>,<span class="number">7696967</span>,<span class="number">7715177</span>,<span class="number">7718177</span>,<span class="number">7722277</span>,<span class="number">7729277</span>,<span class="number">7733377</span>,<span class="number">7742477</span>,<span class="number">7747477</span>,<span class="number">7750577</span>,<span class="number">7758577</span>,<span class="number">7764677</span>,<span class="number">7772777</span>,<span class="number">7774777</span>,<span class="number">7778777</span>,<span class="number">7782877</span>,<span class="number">7783877</span>,<span class="number">7791977</span>,<span class="number">7794977</span>,<span class="number">7807087</span>,<span class="number">7819187</span>,<span class="number">7820287</span>,<span class="number">7821287</span>,<span class="number">7831387</span>,<span class="number">7832387</span>,<span class="number">7838387</span>,<span class="number">7843487</span>,<span class="number">7850587</span>,<span class="number">7856587</span>,<span class="number">7865687</span>,<span class="number">7867687</span>,<span class="number">7868687</span>,<span class="number">7873787</span>,<span class="number">7884887</span>,<span class="number">7891987</span>,<span class="number">7897987</span>,<span class="number">7913197</span>,<span class="number">7916197</span>,<span class="number">7930397</span>,<span class="number">7933397</span>,<span class="number">7935397</span>,<span class="number">7938397</span>,<span class="number">7941497</span>,<span class="number">7943497</span>,<span class="number">7949497</span>,<span class="number">7957597</span>,<span class="number">7958597</span>,<span class="number">7960697</span>,<span class="number">7977797</span>,<span class="number">7984897</span>,<span class="number">7985897</span>,<span class="number">7987897</span>,<span class="number">7996997</span>,<span class="number">9002009</span>,<span class="number">9015109</span>,<span class="number">9024209</span>,<span class="number">9037309</span>,<span class="number">9042409</span>,<span class="number">9043409</span>,<span class="number">9045409</span>,<span class="number">9046409</span>,<span class="number">9049409</span>,<span class="number">9067609</span>,<span class="number">9073709</span>,<span class="number">9076709</span>,<span class="number">9078709</span>,<span class="number">9091909</span>,<span class="number">9095909</span>,<span class="number">9103019</span>,<span class="number">9109019</span>,<span class="number">9110119</span>,<span class="number">9127219</span>,<span class="number">9128219</span>,<span class="number">9136319</span>,<span class="number">9149419</span>,<span class="number">9169619</span>,<span class="number">9173719</span>,<span class="number">9174719</span>,<span class="number">9179719</span>,<span class="number">9185819</span>,<span class="number">9196919</span>,<span class="number">9199919</span>,<span class="number">9200029</span>,<span class="number">9209029</span>,<span class="number">9212129</span>,<span class="number">9217129</span>,<span class="number">9222229</span>,<span class="number">9223229</span>,<span class="number">9230329</span>,<span class="number">9231329</span>,<span class="number">9255529</span>,<span class="number">9269629</span>,<span class="number">9271729</span>,<span class="number">9277729</span>,<span class="number">9280829</span>,<span class="number">9286829</span>,<span class="number">9289829</span>,<span class="number">9318139</span>,<span class="number">9320239</span>,<span class="number">9324239</span>,<span class="number">9329239</span>,<span class="number">9332339</span>,<span class="number">9338339</span>,<span class="number">9351539</span>,<span class="number">9357539</span>,<span class="number">9375739</span>,<span class="number">9384839</span>,<span class="number">9397939</span>,<span class="number">9400049</span>,<span class="number">9414149</span>,<span class="number">9419149</span>,<span class="number">9433349</span>,<span class="number">9439349</span>,<span class="number">9440449</span>,<span class="number">9446449</span>,<span class="number">9451549</span>,<span class="number">9470749</span>,<span class="number">9477749</span>,<span class="number">9492949</span>,<span class="number">9493949</span>,<span class="number">9495949</span>,<span class="number">9504059</span>,<span class="number">9514159</span>,<span class="number">9526259</span>,<span class="number">9529259</span>,<span class="number">9547459</span>,<span class="number">9556559</span>,<span class="number">9558559</span>,<span class="number">9561659</span>,<span class="number">9577759</span>,<span class="number">9583859</span>,<span class="number">9585859</span>,<span class="number">9586859</span>,<span class="number">9601069</span>,<span class="number">9602069</span>,<span class="number">9604069</span>,<span class="number">9610169</span>,<span class="number">9620269</span>,<span class="number">9624269</span>,<span class="number">9626269</span>,<span class="number">9632369</span>,<span class="number">9634369</span>,<span class="number">9645469</span>,<span class="number">9650569</span>,<span class="number">9657569</span>,<span class="number">9670769</span>,<span class="number">9686869</span>,<span class="number">9700079</span>,<span class="number">9709079</span>,<span class="number">9711179</span>,<span class="number">9714179</span>,<span class="number">9724279</span>,<span class="number">9727279</span>,<span class="number">9732379</span>,<span class="number">9733379</span>,<span class="number">9743479</span>,<span class="number">9749479</span>,<span class="number">9752579</span>,<span class="number">9754579</span>,<span class="number">9758579</span>,<span class="number">9762679</span>,<span class="number">9770779</span>,<span class="number">9776779</span>,<span class="number">9779779</span>,<span class="number">9781879</span>,<span class="number">9782879</span>,<span class="number">9787879</span>,<span class="number">9788879</span>,<span class="number">9795979</span>,<span class="number">9801089</span>,<span class="number">9807089</span>,<span class="number">9809089</span>,<span class="number">9817189</span>,<span class="number">9818189</span>,<span class="number">9820289</span>,<span class="number">9822289</span>,<span class="number">9836389</span>,<span class="number">9837389</span>,<span class="number">9845489</span>,<span class="number">9852589</span>,<span class="number">9871789</span>,<span class="number">9888889</span>,<span class="number">9889889</span>,<span class="number">9896989</span>,<span class="number">9902099</span>,<span class="number">9907099</span>,<span class="number">9908099</span>,<span class="number">9916199</span>,<span class="number">9918199</span>,<span class="number">9919199</span>,<span class="number">9921299</span>,<span class="number">9923299</span>,<span class="number">9926299</span>,<span class="number">9927299</span>,<span class="number">9931399</span>,<span class="number">9932399</span>,<span class="number">9935399</span>,<span class="number">9938399</span>,<span class="number">9957599</span>,<span class="number">9965699</span>,<span class="number">9978799</span>,<span class="number">9980899</span>,<span class="number">9981899</span>,<span class="number">9989899</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a,b,t0=<span class="number">781</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b)!=EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span> ;i&lt;t0 ;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(biao[i]&gt;=a &amp;&amp; biao[i]&lt;=b)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,biao[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/水题/" rel="tag"># 水题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/18/POJ-3468-A-simple-problem-with-Integers-线段树区间更新，区间查询/" rel="next" title="POJ 3468 A simple problem with Integers (线段树区间更新，区间查询)">
+                <i class="fa fa-chevron-left"></i> POJ 3468 A simple problem with Integers (线段树区间更新，区间查询)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">zzuli_hanjk</p>
+              <p class="site-description motion-element" itemprop="description">repeat and accumulation</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/reedthink" title="GitHub &rarr; https://github.com/reedthink" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目点这里"><span class="nav-number">1.</span> <span class="nav-text">题目点这里</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析："><span class="nav-number">2.</span> <span class="nav-text">分析：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一种方法："><span class="nav-number">3.</span> <span class="nav-text">第一种方法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二种方法："><span class="nav-number">4.</span> <span class="nav-text">第二种方法：</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zzuli_hanjk</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
