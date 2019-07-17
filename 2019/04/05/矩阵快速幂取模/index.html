@@ -102,25 +102,25 @@
 
 
 
-  <meta name="description" content="Problem is here">
+  <meta name="description" content="矩阵快速幂，主要用于快速求递推的第n项，时间复杂度可以降低很多。这里有一道裸的矩阵快速幂，可以练习一下矩阵快速幂的写法，同时，也算是记录一下吧。">
 <meta name="keywords" content="数学">
 <meta property="og:type" content="article">
-<meta property="og:title" content="codeforces-1084C The Fair Nut and String(数学题)">
-<meta property="og:url" content="http://yoursite.com/2019/01/22/codeforces-1084C-The-Fair-Nut-and-String-数学题/index.html">
+<meta property="og:title" content="矩阵快速幂取模">
+<meta property="og:url" content="http://yoursite.com/2019/04/05/矩阵快速幂取模/index.html">
 <meta property="og:site_name" content="zzuli_hanjk&#39;s blog">
-<meta property="og:description" content="Problem is here">
+<meta property="og:description" content="矩阵快速幂，主要用于快速求递推的第n项，时间复杂度可以降低很多。这里有一道裸的矩阵快速幂，可以练习一下矩阵快速幂的写法，同时，也算是记录一下吧。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-17T11:08:21.191Z">
+<meta property="og:updated_time" content="2019-07-17T11:08:21.292Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="codeforces-1084C The Fair Nut and String(数学题)">
-<meta name="twitter:description" content="Problem is here">
+<meta name="twitter:title" content="矩阵快速幂取模">
+<meta name="twitter:description" content="矩阵快速幂，主要用于快速求递推的第n项，时间复杂度可以降低很多。这里有一道裸的矩阵快速幂，可以练习一下矩阵快速幂的写法，同时，也算是记录一下吧。">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/22/codeforces-1084C-The-Fair-Nut-and-String-数学题/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/05/矩阵快速幂取模/">
 
 
 
@@ -130,7 +130,7 @@
   };
 </script>
 
-  <title>codeforces-1084C The Fair Nut and String(数学题) | zzuli_hanjk's blog</title>
+  <title>矩阵快速幂取模 | zzuli_hanjk's blog</title>
   
 
 
@@ -312,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/22/codeforces-1084C-The-Fair-Nut-and-String-数学题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/矩阵快速幂取模/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zzuli_hanjk">
@@ -329,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">codeforces-1084C The Fair Nut and String(数学题)
+          <h1 class="post-title" itemprop="name headline">矩阵快速幂取模
 
               
             
@@ -355,7 +355,7 @@
                 
               
 
-              <time title="创建时间：2019-01-22 14:53:05" itemprop="dateCreated datePublished" datetime="2019-01-22T14:53:05+08:00">2019-01-22</time>
+              <time title="创建时间：2019-04-05 13:54:50" itemprop="dateCreated datePublished" datetime="2019-04-05T13:54:50+08:00">2019-04-05</time>
             
 
             
@@ -413,10 +413,9 @@
       
 
       
-        <h2 id="Problem-is-here"><a href="#Problem-is-here" class="headerlink" title="Problem is here"></a><a href="http://codeforces.com/problemset/problem/1084/C" target="_blank" rel="noopener">Problem is here</a></h2><a id="more"></a>
-<h2 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h2><p>给出一个小写字母串，需要从其中找出所有含a的子序列。注意，连续的a被看做是相同的，只有被b分割的算作不连续。</p>
-<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p>首先肯定是以b为切割点，计算出每段连续a序列的长度。对于一段长度为sum的’a’我们有sum+1种操作，因为可以不挑选这一段的’a’，在最后-1就是排除掉所有的’a’都不挑选的情况。那么解法就出来了：把每段a连续序列的长度与1的和相乘，记得取模，最后输出时候，之前的积减去1，就是答案。<del>至于为什么这样能找出答案，我也不明白🤔，这等我搞明白之后再加上吧</del>已经搞明白了。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">100001</span>,mod=<span class="number">1000000007</span>;</span><br><span class="line"><span class="keyword">char</span> s[maxn];</span><br><span class="line"><span class="keyword">int</span> b[maxn]=&#123;&#125;,n=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,s);</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span> ; s[i]; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]==<span class="string">'a'</span>)</span><br><span class="line">            b[n]++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">'b'</span>&amp;&amp;b[n])          </span><br><span class="line">            n++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span> ;i&lt;=n ;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ans*=(b[i]+<span class="number">1</span>);  </span><br><span class="line">        ans%=mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>矩阵快速幂，主要用于快速求递推的第n项，时间复杂度可以降低很多。这里有一道裸的矩阵快速幂，可以练习一下矩阵快速幂的写法，同时，也算是记录一下吧。<br><a id="more"></a></p>
+<h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a href="https://www.51nod.com/Challenge/Problem.html#!#problemId=1113" target="_blank" rel="noopener">51nod 1113 矩阵快速幂</a></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> maxn = <span class="number">101</span>, mod = <span class="number">1000000007</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">matrix</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> s[maxn][maxn];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> a, b;</span><br><span class="line">matrix res, ans;</span><br><span class="line"><span class="function">matrix <span class="title">mul</span><span class="params">(matrix A, matrix B, <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> n)</span><span class="comment">//矩阵乘法，注意矩阵乘法无交换律</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    matrix C;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">            C.s[i][j] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; k++)</span><br><span class="line">                C.s[i][j] += A.s[i][k] * B.s[k][j]%mod;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> C;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quick</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> y, <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> n)</span><span class="comment">//快速幂</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    res = ans;</span><br><span class="line">    <span class="keyword">while</span> (y)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (y &amp; <span class="number">1</span>)</span><br><span class="line">            ans = mul(ans, res, n);</span><br><span class="line">        res = mul(res, res, n);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                ans.s[i][j] %= mod;</span><br><span class="line">                res.s[i][j] %= mod;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        y = y &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> n, y;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld%lld"</span>, &amp;n, &amp;y);</span><br><span class="line">    --y;</span><br><span class="line">    matrix ans0;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; ans.s[i][j];</span><br><span class="line">    quick(y, n);</span><br><span class="line">    <span class="comment">//ans0 = mul(ans, ans0, n);</span></span><br><span class="line">    <span class="comment">/* for(int i=1 ;i&lt;3 ;i++)</span></span><br><span class="line"><span class="comment">        &#123;</span></span><br><span class="line"><span class="comment">            for(int j=1 ;j&lt;3 ;j++)</span></span><br><span class="line"><span class="comment">                printf("%lld ",ans0.s[i][j]);</span></span><br><span class="line"><span class="comment">            puts("");</span></span><br><span class="line"><span class="comment">        &#125;*/</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt; ans.s[i][j]%mod&lt;&lt; <span class="string">' '</span>;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -453,8 +452,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/21/HDU-1431素数回文/" rel="next" title="HDU-1431 素数回文">
-                <i class="fa fa-chevron-left"></i> HDU-1431 素数回文
+              <a href="/2019/04/02/素数筛法，以51nod1181为例/" rel="next" title="素数筛法，以51nod1181为例">
+                <i class="fa fa-chevron-left"></i> 素数筛法，以51nod1181为例
               </a>
             
           </div>
@@ -463,8 +462,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/24/KMP算法的另一种写法/" rel="prev" title="KMP算法的深入理解与另一种写法">
-                KMP算法的深入理解与另一种写法 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/05/cin的优化-关闭同步/" rel="prev" title="cin的优化--关闭同步">
+                cin的优化--关闭同步 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -619,7 +618,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem-is-here"><span class="nav-number">1.</span> <span class="nav-text">Problem is here</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题意："><span class="nav-number">2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路："><span class="nav-number">3.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目链接"><span class="nav-number">1.</span> <span class="nav-text">题目链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
             
 
           </div>
