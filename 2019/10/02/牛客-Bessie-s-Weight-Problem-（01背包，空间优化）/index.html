@@ -102,25 +102,25 @@
 
 
 
-  <meta name="description" content="cin在关闭缓冲与输入绑定之后，速度与scanf不相上下。注意关闭后只能使用cin与cout等输入输出流，无法与c的输入输出混用。关闭方法如下：12ios::sync_with_stdio(false);//关闭c输入方式兼容cin.tie(0);//解绑输入流 输入量实在超级巨大的时候，可以考虑使用快读1234567void read(int &amp;amp;x)&amp;#123;    int f=1,x">
-<meta name="keywords" content="小技巧">
+  <meta name="description" content="题目链接题意一头牛最多能吃H kg的草，这里有N堆草，每堆草一旦选择就必须吃完，求牛最多能吃多少kg的草">
+<meta name="keywords" content="动态规划">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cin的优化--关闭同步">
-<meta property="og:url" content="http://yoursite.com/2019/04/05/cin的优化-关闭同步/index.html">
+<meta property="og:title" content="牛客 Bessie&#39;s Weight Problem （01背包，空间优化）">
+<meta property="og:url" content="http://yoursite.com/2019/10/02/牛客-Bessie-s-Weight-Problem-（01背包，空间优化）/index.html">
 <meta property="og:site_name" content="zzuli_hanjk&#39;s blog">
-<meta property="og:description" content="cin在关闭缓冲与输入绑定之后，速度与scanf不相上下。注意关闭后只能使用cin与cout等输入输出流，无法与c的输入输出混用。关闭方法如下：12ios::sync_with_stdio(false);//关闭c输入方式兼容cin.tie(0);//解绑输入流 输入量实在超级巨大的时候，可以考虑使用快读1234567void read(int &amp;amp;x)&amp;#123;    int f=1,x">
+<meta property="og:description" content="题目链接题意一头牛最多能吃H kg的草，这里有N堆草，每堆草一旦选择就必须吃完，求牛最多能吃多少kg的草">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-22T00:57:11.575Z">
+<meta property="og:updated_time" content="2019-10-02T12:37:56.788Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cin的优化--关闭同步">
-<meta name="twitter:description" content="cin在关闭缓冲与输入绑定之后，速度与scanf不相上下。注意关闭后只能使用cin与cout等输入输出流，无法与c的输入输出混用。关闭方法如下：12ios::sync_with_stdio(false);//关闭c输入方式兼容cin.tie(0);//解绑输入流 输入量实在超级巨大的时候，可以考虑使用快读1234567void read(int &amp;amp;x)&amp;#123;    int f=1,x">
+<meta name="twitter:title" content="牛客 Bessie&#39;s Weight Problem （01背包，空间优化）">
+<meta name="twitter:description" content="题目链接题意一头牛最多能吃H kg的草，这里有N堆草，每堆草一旦选择就必须吃完，求牛最多能吃多少kg的草">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/05/cin的优化-关闭同步/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/02/牛客-Bessie-s-Weight-Problem-（01背包，空间优化）/">
 
 
 
@@ -130,7 +130,7 @@
   };
 </script>
 
-  <title>cin的优化--关闭同步 | zzuli_hanjk's blog</title>
+  <title>牛客 Bessie's Weight Problem （01背包，空间优化） | zzuli_hanjk's blog</title>
   
 
 
@@ -312,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/cin的优化-关闭同步/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/02/牛客-Bessie-s-Weight-Problem-（01背包，空间优化）/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zzuli_hanjk">
@@ -329,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">cin的优化--关闭同步
+          <h1 class="post-title" itemprop="name headline">牛客 Bessie's Weight Problem （01背包，空间优化）
 
               
             
@@ -355,24 +355,12 @@
                 
               
 
-              <time title="创建时间：2019-04-05 14:06:15" itemprop="dateCreated datePublished" datetime="2019-04-05T14:06:15+08:00">2019-04-05</time>
+              <time title="创建时间：2019-10-02 20:36:36 / 修改时间：20:37:56" itemprop="dateCreated datePublished" datetime="2019-10-02T20:36:36+08:00">2019-10-02</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-22 08:57:11" itemprop="dateModified" datetime="2019-08-22T08:57:11+08:00">2019-08-22</time>
               
             
           </span>
@@ -413,9 +401,12 @@
       
 
       
-        <p>cin在关闭缓冲与输入绑定之后，速度与scanf不相上下。<br>注意关闭后只能使用cin与cout等输入输出流，无法与c的输入输出混用。<br>关闭方法如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ios::sync_with_stdio(<span class="literal">false</span>);<span class="comment">//关闭c输入方式兼容</span></span><br><span class="line"><span class="built_in">cin</span>.tie(<span class="number">0</span>);<span class="comment">//解绑输入流</span></span><br></pre></td></tr></table></figure></p>
-<p>输入量实在超级巨大的时候，可以考虑使用快读<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">read</span><span class="params">(<span class="keyword">int</span> &amp;x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> f=<span class="number">1</span>,x=<span class="number">0</span>;<span class="keyword">char</span> s=getchar();</span><br><span class="line">    <span class="keyword">while</span>(s&lt;<span class="string">'0'</span>||s&gt;<span class="string">'9'</span>)&#123;<span class="keyword">if</span>(s==<span class="string">'-'</span>)f=<span class="number">-1</span>;s=getchar();&#125;</span><br><span class="line">    <span class="keyword">while</span>(s&gt;=<span class="string">'0'</span>&amp;&amp;s&lt;=<span class="string">'9'</span>)&#123;x=x*<span class="number">10</span>+s-<span class="string">'0'</span>;s=getchar();&#125;</span><br><span class="line">    x*=f;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>另附快速输出模板<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="string">'-'</span>);</span><br><span class="line">        x=-x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;<span class="number">9</span>)</span><br><span class="line">        write(x/<span class="number">10</span>);</span><br><span class="line">    <span class="built_in">putchar</span>(x%<span class="number">10</span>+<span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a><a href="https://ac.nowcoder.com/acm/contest/1082/K" target="_blank" rel="noopener">题目链接</a></h2><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>一头牛最多能吃H kg的草，这里有N堆草，每堆草一旦选择就必须吃完，求牛最多能吃多少kg的草<br><a id="more"></a></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>很明显，这是一个01背包问题，然而最朴素的01背包会内存超限，所以要进行空间优化，这里采用背包九讲里提到的空间优化方式，很轻松就解决了。</p>
+<blockquote>
+<p>1.1 题目<br>有 N 件物品和一个容量为 V 的背包。放入第 i 件物品耗费的费用是 Ci1，得到的 价值是 Wi。求解将哪些物品装入背包可使价值总和最大。<br>1.2 基本思路<br>这是最基础的背包问题，特点是：每种物品仅有一件，可以选择放或不放。 用子问题定义状态：即 F[i,v] 表示前 i 件物品恰放入一个容量为 v 的背包可以获得 的最大价值。则其状态转移方程便是： F[i,v] = max{F[i−1,v],F[i−1,v−Ci] + Wi} 这个方程非常重要，基本上所有跟背包相关的问题的方程都是由它衍生出来的。所 以有必要将它详细解释一下：“将前 i 件物品放入容量为 v 的背包中”这个子问题，若 只考虑第 i 件物品的策略（放或不放），那么就可以转化为一个只和前 i−1 件物品相关 的问题。如果不放第 i 件物品，那么问题就转化为“前 i−1 件物品放入容量为 v 的背 包中”，价值为 F[i−1,v]；如果放第 i 件物品，那么问题就转化为“前 i−1 件物品放 入剩下的容量为 v−Ci 的背包中”，此时能获得的最大价值就是 F[i−1,v−Ci] 再加上 通过放入第 i 件物品获得的价值 Wi。 伪代码如下：<br>F[0,0..V ] ← 0<br>for i ← 1 to N<br> {<br> for v ← Ci to V<br> F[i,v] ←max{F[i−1,v],F[i−1,v−Ci] + Wi<br> }<br> 1.3 优化空间复杂度<br> 以上方法的时间和空间复杂度均为 O(V N)，其中时间复杂度应该已经不能再优化 了，但空间复杂度却可以优化到 O(V )。 先考虑上面讲的基本思路如何实现，肯定是有一个主循环 i ← 1…N，每次算出来 二维数组 F[i,0…V ] 的所有值。那么，如果只用一个数组 F[0…V ]，能不能保证第 i 次循环结束后 F[v] 中表示的就是我们定义的状态 F[i,v] 呢？F[i,v] 是由 F[i−1,v] 和 F[i−1,v−Ci] 两个子问题递推而来，能否保证在推 F[i,v] 时（也即在第 i 次主循环中 推 F[v] 时）能够取用 F[i−1,v] 和 F[i−1,v−Ci] 的值呢？ 事实上，这要求在每次主循环中我们以 v ← V …0 的递减顺序计算 F[v]，这样才 能保证计算 F[v] 时 F[v−Ci] 保存的是状态 F[i−1,v−Ci] 的值。伪代码如下：<br>  F[0..V ]←0<br>  for i ← 1 to N<br>  {<br>  for v ← V to Ci F[v] ←max{F[v],F[v−Ci] + Wi<br>  }<br>其中的 F[v] ←max{F[v],F[v−Ci] + Wi} 一句，恰就对应于我们原来的转移方程，因 为现在的 F[v−Ci] 就相当于原来的 F[i−1,v−Ci]。如果将 v 的循环顺序从上面的逆 序改成顺序的话，那么则成了 F[i,v] 由 F[i,v−Ci] 推导得到，与本题意不符。 事实上，使用一维数组解 01 背包的程序在后面会被多次用到，所以这里抽象出一 个处理一件 01 背包中的物品过程，以后的代码中直接调用不加说明。<br> def ZeroOnePack(F,C,W)<br>for v ← V to C<br> F[v] ←max(F[v],F[v−C] + W)<br> 有了这个过程以后，01 背包问题的伪代码就可以这样写：<br>  F[0..V ]←0<br>   for i ← 1 to N<br>   ZeroOnePack(F,Ci,Wi) </p>
+</blockquote>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">55000</span>], v[<span class="number">4000</span>];</span><br><span class="line"><span class="keyword">int</span> n, W;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = W; j &gt;=v[i]; --j)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[j] = max(dp[j] , dp[j - v[i]] + v[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;W&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span> ; i&lt;n ;i++)</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;v[i];</span><br><span class="line">    solve();</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;dp[W]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -439,7 +430,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/小技巧/" rel="tag"># 小技巧</a>
+            <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
           
         </div>
       
@@ -452,8 +443,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/05/矩阵快速幂取模/" rel="next" title="矩阵快速幂取模">
-                <i class="fa fa-chevron-left"></i> 矩阵快速幂取模
+              <a href="/2019/09/27/生于忧患，死于安乐/" rel="next" title="生于忧患，死于安乐">
+                <i class="fa fa-chevron-left"></i> 生于忧患，死于安乐
               </a>
             
           </div>
@@ -461,10 +452,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/05/51nod-1091线段的覆盖/" rel="prev" title="51nod 1091线段的覆盖">
-                51nod 1091线段的覆盖 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -509,8 +496,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -615,6 +611,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目链接"><span class="nav-number">1.</span> <span class="nav-text">题目链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题意"><span class="nav-number">2.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">3.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
