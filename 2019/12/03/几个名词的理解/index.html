@@ -102,25 +102,24 @@
 
 
 
-  <meta name="description" content="题目链接">
-<meta name="keywords" content="贪心">
+  <meta name="description" content="容错：系统坏了一部分，但是还能凑合用高可用：系统彻底坏了，但是可以马上修好，继续运行灾备（灾难恢复）：系统坏了，但是我们可以抢救出重要数据或者业务代码">
 <meta property="og:type" content="article">
-<meta property="og:title" content="51nod 1091线段的覆盖">
-<meta property="og:url" content="http://yoursite.com/2019/04/05/51nod-1091线段的覆盖/index.html">
+<meta property="og:title" content="几个名词的理解">
+<meta property="og:url" content="http://yoursite.com/2019/12/03/几个名词的理解/index.html">
 <meta property="og:site_name" content="zzuli_hanjk&#39;s blog">
-<meta property="og:description" content="题目链接">
+<meta property="og:description" content="容错：系统坏了一部分，但是还能凑合用高可用：系统彻底坏了，但是可以马上修好，继续运行灾备（灾难恢复）：系统坏了，但是我们可以抢救出重要数据或者业务代码">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-17T11:08:21.137Z">
+<meta property="og:updated_time" content="2019-12-03T13:15:01.307Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="51nod 1091线段的覆盖">
-<meta name="twitter:description" content="题目链接">
+<meta name="twitter:title" content="几个名词的理解">
+<meta name="twitter:description" content="容错：系统坏了一部分，但是还能凑合用高可用：系统彻底坏了，但是可以马上修好，继续运行灾备（灾难恢复）：系统坏了，但是我们可以抢救出重要数据或者业务代码">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/05/51nod-1091线段的覆盖/">
+  <link rel="canonical" href="http://yoursite.com/2019/12/03/几个名词的理解/">
 
 
 
@@ -130,7 +129,7 @@
   };
 </script>
 
-  <title>51nod 1091线段的覆盖 | zzuli_hanjk's blog</title>
+  <title>几个名词的理解 | zzuli_hanjk's blog</title>
   
 
 
@@ -318,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/51nod-1091线段的覆盖/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/03/几个名词的理解/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zzuli_hanjk">
@@ -335,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">51nod 1091线段的覆盖
+          <h1 class="post-title" itemprop="name headline">几个名词的理解
 
               
             
@@ -361,24 +360,12 @@
                 
               
 
-              <time title="创建时间：2019-04-05 20:19:28" itemprop="dateCreated datePublished" datetime="2019-04-05T20:19:28+08:00">2019-04-05</time>
+              <time title="创建时间：2019-12-03 18:37:50 / 修改时间：21:15:01" itemprop="dateCreated datePublished" datetime="2019-12-03T18:37:50+08:00">2019-12-03</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-17 19:08:21" itemprop="dateModified" datetime="2019-07-17T19:08:21+08:00">2019-07-17</time>
               
             
           </span>
@@ -419,9 +406,7 @@
       
 
       
-        <h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a><a href="https://www.51nod.com/Challenge/Problem.html#!#problemId=1091" target="_blank" rel="noopener">题目链接</a></h2><a id="more"></a>
-<p>将所有线段按照起点从小到大排序，起点相同的，按终点从大到小排序。这一题里，两条线段之间的关系可分为三种：不相交，相交，覆盖。下面重点来了，<strong>设有三条线段a，b，c，按上述顺序排列，当a与b相交但是不覆盖的时候，bc的重叠部分一定大于等于ac重叠部分</strong>，想明白这一点后，问题就解决了。</p>
-<h2 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> be, en;</span><br><span class="line">&#125;;</span><br><span class="line">node a[<span class="number">50000</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cmp</span><span class="params">(node x, node y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x.be == y.be)</span><br><span class="line">        <span class="keyword">return</span> x.en &gt; y.en;</span><br><span class="line">    <span class="keyword">return</span> x.be &lt; y.be;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i].be &gt;&gt; a[i].en;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(a, a + n, cmp);</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    node zan = a[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i].be &lt; zan.en)<span class="comment">//相交</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[i].en &lt;= zan.en &amp;&amp; a[i].be &gt;= zan.be)<span class="comment">//覆盖</span></span><br><span class="line">            &#123;</span><br><span class="line">               ans=max(ans,a[i].en-a[i].be) ;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                ans=max(min(a[i].en,zan.en)-a[i].be,ans);<span class="comment">//相交但不覆盖</span></span><br><span class="line">                zan = a[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">        &#123;</span><br><span class="line">            zan=a[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>容错：系统坏了一部分，但是还能凑合用<br>高可用：系统彻底坏了，但是可以马上修好，继续运行<br>灾备（灾难恢复）：系统坏了，但是我们可以抢救出重要数据或者业务代码</p>
 
       
     </div>
@@ -443,12 +428,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/贪心/" rel="tag"># 贪心</a>
-          
-        </div>
-      
 
       
       
@@ -458,8 +437,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/05/cin的优化-关闭同步/" rel="next" title="cin的优化--关闭同步">
-                <i class="fa fa-chevron-left"></i> cin的优化--关闭同步
+              <a href="/2019/11/30/Codeforces-Round-603-Div2部分题解/" rel="next" title="Codeforces-Round#603-Div2部分题解">
+                <i class="fa fa-chevron-left"></i> Codeforces-Round#603-Div2部分题解
               </a>
             
           </div>
@@ -467,10 +446,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/01/hdu3790-最短路径/" rel="prev" title="hdu3790 最短路径">
-                hdu3790 最短路径 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -515,17 +490,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -652,23 +618,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目链接"><span class="nav-number">1.</span> <span class="nav-text">题目链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CODE"><span class="nav-number">2.</span> <span class="nav-text">CODE</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
