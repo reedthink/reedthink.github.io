@@ -246,7 +246,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">16</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">17</span></a>
 
   </li>
         
@@ -265,7 +265,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">38</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">39</span></a>
 
   </li>
 
@@ -301,6 +301,155 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/25/Codeforces-Round-610-Div2部分题解/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zzuli_hanjk">
+      <meta itemprop="description" content="Repeat and Accumulation">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zzuli_hanjk's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/12/25/Codeforces-Round-610-Div2部分题解/" class="post-title-link" itemprop="url">Codeforces-Round-610-Div2部分题解</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-25 20:42:42 / 修改时间：22:03:19" itemprop="dateCreated datePublished" datetime="2019-12-25T20:42:42+08:00">2019-12-25</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="比赛链接"><a href="#比赛链接" class="headerlink" title="比赛链接"></a><a href="https://codeforces.com/contest/1282" target="_blank" rel="noopener"><font color="#66CCCC">比赛链接</font></a></h3><p>时隔10天的CF，打得还是很自闭<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/12/25/Codeforces-Round-610-Div2部分题解/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1437,12 +1586,24 @@
                 
               
 
-              <time title="创建时间：2019-11-01 20:21:24 / 修改时间：21:12:03" itemprop="dateCreated datePublished" datetime="2019-11-01T20:21:24+08:00">2019-11-01</time>
+              <time title="创建时间：2019-11-01 20:21:24" itemprop="dateCreated datePublished" datetime="2019-11-01T20:21:24+08:00">2019-11-01</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-12-17 21:55:43" itemprop="dateModified" datetime="2019-12-17T21:55:43+08:00">2019-12-17</time>
               
             
           </span>
@@ -1479,7 +1640,7 @@
         
           <p>=_= 一个题如果一直超时，要考虑是不是有很多重复的计算。<br><a href="https://vjudge.net/problem/POJ-2992" target="_blank" rel="noopener">POJ-2992</a></p>
 <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>计算组合数的因子个数。(0 ≤ k ≤ n ≤ 431)</p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>显然，我们不能算出组合数再求因子个数。求N的因子个数，可以将N分解质因数，每个质因子的数量A_ i先+1，然后将所有A_ i相乘，就是因子个数。别问，问就是不会证+_+<br>这个题目的查询蛮多的，打表不打表，差距不大。关键上述做法的实现是否够快<br>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>显然，我们不能算出组合数再求因子个数。求N的因子个数，可以将N分解质因数，每个质因子的数量A_i先+1，然后将所有A_i相乘，就是因子个数。别问，问就是不会证+_+<br>这个题目的查询蛮多的，打表不打表，差距不大。关键上述做法的实现是否够快<br>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1671,155 +1832,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/26/Codeforces-1185C2-Exam-in-BerSU-hard-version/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zzuli_hanjk">
-      <meta itemprop="description" content="Repeat and Accumulation">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zzuli_hanjk's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/10/26/Codeforces-1185C2-Exam-in-BerSU-hard-version/" class="post-title-link" itemprop="url">Codeforces 1185C2 Exam in BerSU (hard version)</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-26 14:48:50 / 修改时间：14:51:56" itemprop="dateCreated datePublished" datetime="2019-10-26T14:48:50+08:00">2019-10-26</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a><a href="https://codeforces.com/problemset/problem/1185/C2" target="_blank" rel="noopener">题目链接</a></h3><h3 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h3><p>有n个学生依次答题，每个学生都有自己的答题时长。答题总时间只有M分钟。问第 <strong>i</strong>  个学生要答题，则前面最少多少人不答题才行？<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/10/26/Codeforces-1185C2-Exam-in-BerSU-hard-version/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1867,7 +1879,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1914,7 +1926,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">16</span>
+                      
+                    
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2194,9 +2208,9 @@
       
     
       
-        
-      
     
+      
+        
       
     
       
