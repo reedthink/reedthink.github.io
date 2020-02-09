@@ -246,7 +246,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">17</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">18</span></a>
 
   </li>
         
@@ -265,7 +265,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">39</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">40</span></a>
 
   </li>
 
@@ -301,6 +301,155 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/09/Go语言踩坑之旅/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zzuli_hanjk">
+      <meta itemprop="description" content="Repeat and Accumulation">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zzuli_hanjk's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/02/09/Go语言踩坑之旅/" class="post-title-link" itemprop="url">Go语言踩坑之旅</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-09 21:58:28 / 修改时间：21:59:38" itemprop="dateCreated datePublished" datetime="2020-02-09T21:58:28+08:00">2020-02-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>前言：友人寻我合做一个小网站。我们最终决定采用Go语言写后端。因此我开始了Golang踩坑之旅。<br>注：本文基于Go 1.13.7 。操作系统为Manjaro KDE 64位，下文golang等同于Go语言</p>
+<p>以前，golang缺乏好用的包管理器，并且所有项目必须在GOPATH文件夹下组织。如此反直觉的开发方式让笔者在之前对GO浅尝辄止。在Go的1.11版本后，Go引入了go mod，在Go1.13版本go mod正式上位，成为默认的包管理器，正式名称为go modules（原名称为vgo）。<br>笔者在昨天clone了一个GO开源小项目，对其使用新的go mod管理，然而却遇到了比较严重的问题，下面复现一下问题，并解决。</p>
+<p>首先，将项目clone到本地<br> <code>git clone https://github.com/44670/ProjectSend.git</code><br> 经过观察，我们可以知道这个项目没有采用go mod进行组织（判断方法：看目录中是否有go.mod文件）<br> 执行gomod初始化命令<br> <code>go mod init ProjectSend</code><br> 我们尝试构建</p>
+<h3 id="坑点一：静态文件打包进二进制文件"><a href="#坑点一：静态文件打包进二进制文件" class="headerlink" title="坑点一：静态文件打包进二进制文件"></a>坑点一：静态文件打包进二进制文件</h3><p> <img src="https://img-blog.csdnimg.cn/20200209160204483.png" alt="在这里插入图片描述"><br> 报错啦，意思是未找到statik文件。我们知道这个项目采用statik工具，将网站需要的静态文件打包扔进二进制可执行文件（静态文件少的小网站，这样处理很轻松）。</p>
+<h4 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h4><p>我们需要用statik工具将static文件夹打包。<br>下载statik工具 <code>go get github.com/rakyll/statik</code><br>用statik将静态文件文件夹打包成go文件<code>~/go/bin/statik -src=static</code></p>
+<p>搞定之后如下图<br> <img src="https://img-blog.csdnimg.cn/2020020916164332.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6dWxpX2hhbmpr,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">好了，再次尝试构建<br> 还是报错<br> <img src="https://img-blog.csdnimg.cn/20200209162021534.png" alt="本地包导入失败"> </p>
+<h3 id="坑点二：本地包导入"><a href="#坑点二：本地包导入" class="headerlink" title="坑点二：本地包导入"></a>坑点二：本地包导入</h3><p> 新的go mod要求导入第三方包的包名格式必须为网址格式，例如”github.com/rakyll/statik/fs”这种形式。<br> 那么笔者新建一个github仓库，将statik文件push上去。（过程不再赘述）<br> 修改main.go文件的第17行为<code>_ &quot;github.com/reedthink/FuckGoMod/statik&quot;</code>，ok，再次尝试运行<br> 成功～<br> <img src="https://img-blog.csdnimg.cn/20200209163136975.png" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/20200209163028785.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6dWxpX2hhbmpr,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">在<a href="https://github.com/golang/go/issues/26645" target="_blank" rel="noopener">某issue中</a>提到import本地包的问题，官方回复“此问题是go mod的新要求，很抱歉但是以后都这样”。<br> 好吧，那以后导入本地包又没有网络环境，改怎么办呢？当然还有Plan B：replace。<br> 具体使用方法，且看下回分解</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1689,149 +1838,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/26/关于写博客的二三事/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zzuli_hanjk">
-      <meta itemprop="description" content="Repeat and Accumulation">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zzuli_hanjk's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/10/26/关于写博客的二三事/" class="post-title-link" itemprop="url">关于写博客的二三事</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-26 15:05:54 / 修改时间：15:21:18" itemprop="dateCreated datePublished" datetime="2019-10-26T15:05:54+08:00">2019-10-26</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>如果是文字可以是思维的延伸，那么写博客就是人生的拓宽吧。<br>虽然写一篇比较有价值的博客要花费不少时间，但是仔细想想，这时间并没有浪费。因为在记录的过程中，需要理清自己的思路，需要思考和总结。总之，写博客并不算浪费时间，而是学习的一部分。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1879,7 +1885,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1928,7 +1934,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">17</span>
+                      
+                    
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2210,9 +2218,9 @@
       
     
       
-        
-      
     
+      
+        
       
     
       
