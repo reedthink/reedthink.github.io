@@ -362,7 +362,7 @@
                 
               
 
-              <time title="创建时间：2020-02-09 21:58:28 / 修改时间：21:59:38" itemprop="dateCreated datePublished" datetime="2020-02-09T21:58:28+08:00">2020-02-09</time>
+              <time title="创建时间：2020-02-09 21:58:28 / 修改时间：22:03:40" itemprop="dateCreated datePublished" datetime="2020-02-09T21:58:28+08:00">2020-02-09</time>
             
 
             
@@ -402,19 +402,19 @@
 
       
         
+          <p>前言：友人寻我合做一个小网站。我们最终决定采用Go语言写后端。因此我开始了Golang踩坑之旅。<br>
+          <!--noindex-->
           
-            <p>前言：友人寻我合做一个小网站。我们最终决定采用Go语言写后端。因此我开始了Golang踩坑之旅。<br>注：本文基于Go 1.13.7 。操作系统为Manjaro KDE 64位，下文golang等同于Go语言</p>
-<p>以前，golang缺乏好用的包管理器，并且所有项目必须在GOPATH文件夹下组织。如此反直觉的开发方式让笔者在之前对GO浅尝辄止。在Go的1.11版本后，Go引入了go mod，在Go1.13版本go mod正式上位，成为默认的包管理器，正式名称为go modules（原名称为vgo）。<br>笔者在昨天clone了一个GO开源小项目，对其使用新的go mod管理，然而却遇到了比较严重的问题，下面复现一下问题，并解决。</p>
-<p>首先，将项目clone到本地<br> <code>git clone https://github.com/44670/ProjectSend.git</code><br> 经过观察，我们可以知道这个项目没有采用go mod进行组织（判断方法：看目录中是否有go.mod文件）<br> 执行gomod初始化命令<br> <code>go mod init ProjectSend</code><br> 我们尝试构建</p>
-<h3 id="坑点一：静态文件打包进二进制文件"><a href="#坑点一：静态文件打包进二进制文件" class="headerlink" title="坑点一：静态文件打包进二进制文件"></a>坑点一：静态文件打包进二进制文件</h3><p> <img src="https://img-blog.csdnimg.cn/20200209160204483.png" alt="在这里插入图片描述"><br> 报错啦，意思是未找到statik文件。我们知道这个项目采用statik工具，将网站需要的静态文件打包扔进二进制可执行文件（静态文件少的小网站，这样处理很轻松）。</p>
-<h4 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h4><p>我们需要用statik工具将static文件夹打包。<br>下载statik工具 <code>go get github.com/rakyll/statik</code><br>用statik将静态文件文件夹打包成go文件<code>~/go/bin/statik -src=static</code></p>
-<p>搞定之后如下图<br> <img src="https://img-blog.csdnimg.cn/2020020916164332.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6dWxpX2hhbmpr,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">好了，再次尝试构建<br> 还是报错<br> <img src="https://img-blog.csdnimg.cn/20200209162021534.png" alt="本地包导入失败"> </p>
-<h3 id="坑点二：本地包导入"><a href="#坑点二：本地包导入" class="headerlink" title="坑点二：本地包导入"></a>坑点二：本地包导入</h3><p> 新的go mod要求导入第三方包的包名格式必须为网址格式，例如”github.com/rakyll/statik/fs”这种形式。<br> 那么笔者新建一个github仓库，将statik文件push上去。（过程不再赘述）<br> 修改main.go文件的第17行为<code>_ &quot;github.com/reedthink/FuckGoMod/statik&quot;</code>，ok，再次尝试运行<br> 成功～<br> <img src="https://img-blog.csdnimg.cn/20200209163136975.png" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/20200209163028785.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6dWxpX2hhbmpr,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">在<a href="https://github.com/golang/go/issues/26645" target="_blank" rel="noopener">某issue中</a>提到import本地包的问题，官方回复“此问题是go mod的新要求，很抱歉但是以后都这样”。<br> 好吧，那以后导入本地包又没有网络环境，改怎么办呢？当然还有Plan B：replace。<br> 具体使用方法，且看下回分解</p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/02/09/Go语言踩坑之旅/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
 
     
 
