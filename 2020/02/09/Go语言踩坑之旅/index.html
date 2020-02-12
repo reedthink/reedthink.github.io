@@ -115,7 +115,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200209162021534.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200209163136975.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200209163028785.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6dWxpX2hhbmpr,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2020-02-12T04:35:01.703Z">
+<meta property="og:updated_time" content="2020-02-12T04:39:11.281Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go语言踩坑之旅">
 <meta name="twitter:description" content="前言：友人寻我合做一个小网站。我们最终决定采用Go语言写后端。因此我开始了Golang踩坑之旅。">
@@ -384,7 +384,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-12 12:35:01" itemprop="dateModified" datetime="2020-02-12T12:35:01+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 12:39:11" itemprop="dateModified" datetime="2020-02-12T12:39:11+08:00">2020-02-12</time>
               
             
           </span>
@@ -436,9 +436,10 @@
 <p> 更新啦～<br> 让我们把时间倒回到坑点二之前，开始使用另一种更合适的方法导入本地包</p>
 <p>因为新版的go mod不再支持*.go文件中直接import本地个人包，但是我们可以使用go.mod的replace功能来实现。</p>
 <p>首先，我们在main.go中import “github.com/reedthink/MyMod/pkgName” </p>
-<p>自然，我们导入会失败，然后我们必须手动修改go.mod<br>require (<br>    github.com/reedthink/MyMod v1.54.2<br>)</p>
-<p>replace github.com/reedthink/MyMod =&gt; /home/hhh/FuckGoMod</p>
+<p>自然，我们导入会失败，然后我们必须手动修改go.mod</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">require (</span><br><span class="line">	github.com/reedthink/MyMod v1.54.2</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">replace github.com/reedthink/MyMod =&gt; /home/hhh/FuckGoMod</span><br></pre></td></tr></table></figure>
 <p>ok，再次运行，成功！</p>
+<p>附参考链接：<a href="https://segmentfault.com/a/1190000018398763?utm_campaign=studygolang.com&amp;utm_medium=studygolang.com&amp;utm_source=studygolang.com" target="_blank" rel="noopener">https://segmentfault.com/a/1190000018398763?utm_campaign=studygolang.com&amp;utm_medium=studygolang.com&amp;utm_source=studygolang.com</a></p>
 
       
     </div>
