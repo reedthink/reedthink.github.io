@@ -102,25 +102,25 @@
 
 
 
-  <meta name="description" content="题目链接">
-<meta name="keywords" content="字符串">
+  <meta name="description" content="操作系统中的死锁，来源于多个进程对资源的争夺。在一组进程发生死锁的情况下，该组中每一个进程都在等待，等待另一个死锁进程所占有的资源。换句话说，每个进程都在等待其他进程当前占有的资源。从逻辑上讲，这组进程就陷入了一种“悖论”，无法自然解决。 定义： 如果一组进程的每一个进程都在等待仅由该组进程中的其他进程才能引发的事件，那么该组进程是死锁的。当然，早期的单用户单任务操作系统就不会出现死锁，因为进程是">
+<meta name="keywords" content="操作系统">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HDU4513(manacher)">
-<meta property="og:url" content="http://yoursite.com/2019/08/15/HDU4513-manacher/index.html">
+<meta property="og:title" content="浅谈操作系统中的死锁">
+<meta property="og:url" content="http://yoursite.com/2020/03/04/浅谈操作系统中的死锁/index.html">
 <meta property="og:site_name" content="zzuli_hanjk&#39;s blog">
-<meta property="og:description" content="题目链接">
+<meta property="og:description" content="操作系统中的死锁，来源于多个进程对资源的争夺。在一组进程发生死锁的情况下，该组中每一个进程都在等待，等待另一个死锁进程所占有的资源。换句话说，每个进程都在等待其他进程当前占有的资源。从逻辑上讲，这组进程就陷入了一种“悖论”，无法自然解决。 定义： 如果一组进程的每一个进程都在等待仅由该组进程中的其他进程才能引发的事件，那么该组进程是死锁的。当然，早期的单用户单任务操作系统就不会出现死锁，因为进程是">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-15T01:45:05.286Z">
+<meta property="og:updated_time" content="2020-03-04T12:57:13.334Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HDU4513(manacher)">
-<meta name="twitter:description" content="题目链接">
+<meta name="twitter:title" content="浅谈操作系统中的死锁">
+<meta name="twitter:description" content="操作系统中的死锁，来源于多个进程对资源的争夺。在一组进程发生死锁的情况下，该组中每一个进程都在等待，等待另一个死锁进程所占有的资源。换句话说，每个进程都在等待其他进程当前占有的资源。从逻辑上讲，这组进程就陷入了一种“悖论”，无法自然解决。 定义： 如果一组进程的每一个进程都在等待仅由该组进程中的其他进程才能引发的事件，那么该组进程是死锁的。当然，早期的单用户单任务操作系统就不会出现死锁，因为进程是">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/15/HDU4513-manacher/">
+  <link rel="canonical" href="http://yoursite.com/2020/03/04/浅谈操作系统中的死锁/">
 
 
 
@@ -130,7 +130,7 @@
   };
 </script>
 
-  <title>HDU4513(manacher) | zzuli_hanjk's blog</title>
+  <title>浅谈操作系统中的死锁 | zzuli_hanjk's blog</title>
   
 
 
@@ -318,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/HDU4513-manacher/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/04/浅谈操作系统中的死锁/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zzuli_hanjk">
@@ -335,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HDU4513(manacher)
+          <h1 class="post-title" itemprop="name headline">浅谈操作系统中的死锁
 
               
             
@@ -361,7 +361,7 @@
                 
               
 
-              <time title="创建时间：2019-08-15 09:08:05 / 修改时间：09:45:05" itemprop="dateCreated datePublished" datetime="2019-08-15T09:08:05+08:00">2019-08-15</time>
+              <time title="创建时间：2020-03-04 20:08:55 / 修改时间：20:57:13" itemprop="dateCreated datePublished" datetime="2020-03-04T20:08:55+08:00">2020-03-04</time>
             
 
             
@@ -407,9 +407,14 @@
       
 
       
-        <h3 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4513" target="_blank" rel="noopener">题目链接</a></h3><a id="more"></a>
-<h3 id="做法："><a href="#做法：" class="headerlink" title="做法："></a>做法：</h3><p>题目有三个要求，前两个要求是回文子串，第三个要求是回文前半部分递增。我们用manacher处理前两个要求，对于第三个要求，我们额外使用一个递增数组来记录当前位置前递增的数字数量。</p>
-<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">210000</span>;</span><br><span class="line"><span class="keyword">int</span> ma[maxn * <span class="number">2</span>];</span><br><span class="line"><span class="keyword">int</span> mp[maxn * <span class="number">2</span>];</span><br><span class="line"><span class="keyword">int</span> s[maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">manacher</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> l = <span class="number">0</span>;</span><br><span class="line">    ma[l++] = <span class="number">99999</span>;</span><br><span class="line">    ma[l++] = <span class="number">88888</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ma[l++] = s[i];</span><br><span class="line">        ma[l++] = <span class="number">88888</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ma[l] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> mx = <span class="number">0</span>, id = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; l; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        mp[i] = mx &gt; i ? min(mp[<span class="number">2</span> * id - i], mx - i) : <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (ma[i + mp[i]] == ma[i - mp[i]])</span><br><span class="line">            mp[i]++;</span><br><span class="line">        <span class="keyword">if</span> (i + mp[i] &gt; mx)</span><br><span class="line">        &#123;</span><br><span class="line">            mx = i + mp[i];</span><br><span class="line">            id = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> dz[maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun_dz</span><span class="params">(<span class="keyword">int</span> n)</span> <span class="comment">//记录该位置之前的递增数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    dz[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[i - <span class="number">1</span>] &lt;= s[i])</span><br><span class="line">        &#123;</span><br><span class="line">            dz[i] = dz[i - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            dz[i] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len, t;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;len);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; ++i)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;s[i]);</span><br><span class="line">        manacher(len);</span><br><span class="line">        fun_dz(len);</span><br><span class="line">        <span class="keyword">int</span> maxans = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// for(int i=0 ;i&lt;len*2+2;i++)</span></span><br><span class="line">        <span class="comment">// printf("%d ",mp[i]-1);</span></span><br><span class="line">        <span class="comment">// printf("\n");</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>, j = <span class="number">0</span>; i &lt; len * <span class="number">2</span> + <span class="number">2</span>; i += <span class="number">2</span>, j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// printf("%d %d\n", mp[i] - 1, dz[j]);</span></span><br><span class="line">            <span class="keyword">if</span> ((mp[i] - <span class="number">1</span>) / <span class="number">2</span> &lt;= dz[j])</span><br><span class="line">            &#123;</span><br><span class="line"></span><br><span class="line">                maxans = max(maxans, mp[i] - <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">0</span>; i &lt; len * <span class="number">2</span> + <span class="number">2</span>; i += <span class="number">2</span>, j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// printf("%d %d\n", mp[i] - 1, dz[j]);</span></span><br><span class="line">            <span class="keyword">if</span> ((mp[i] - <span class="number">1</span>) / <span class="number">2</span> &lt;= dz[j])</span><br><span class="line">            &#123;</span><br><span class="line"></span><br><span class="line">                maxans = max(maxans, mp[i] - <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, maxans);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>操作系统中的死锁，来源于多个进程对资源的争夺。在一组进程发生死锁的情况下，该组中每一个进程都在等待，等待另一个死锁进程所占有的资源。换句话说，每个进程都在等待其他进程当前占有的资源。从逻辑上讲，这组进程就陷入了一种“悖论”，无法自然解决。</p>
+<h2 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h2><blockquote>
+<p>如果一组进程的每一个进程都在等待仅由该组进程中的其他进程才能引发的事件，那么该组进程是死锁的。<br>当然，早期的单用户单任务操作系统就不会出现死锁，因为进程是逐个执行的。但是现在的操作系统都是多用户多任务操作系统，并且许多场景都需要并行执行，所以我们必须考虑如何解决死锁。</p>
+</blockquote>
+<h2 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h2><ol>
+<li>预防死锁</li>
+<li>避免死锁。不是事先采取限制措施，而是在资源</li>
+</ol>
 
       
     </div>
@@ -433,7 +438,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/字符串/" rel="tag"># 字符串</a>
+            <a href="/tags/操作系统/" rel="tag"># 操作系统</a>
           
         </div>
       
@@ -446,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/11/大话函数编程-转载/" rel="next" title="傻瓜函数编程(转载)">
-                <i class="fa fa-chevron-left"></i> 傻瓜函数编程(转载)
+              <a href="/2020/03/03/HTTP学习手记-一/" rel="next" title="HTTP学习手记(一)">
+                <i class="fa fa-chevron-left"></i> HTTP学习手记(一)
               </a>
             
           </div>
@@ -455,10 +460,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/15/20190815/" rel="prev" title="20190815">
-                20190815 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -661,7 +662,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目链接"><span class="nav-number">1.</span> <span class="nav-text">题目链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#做法："><span class="nav-number">2.</span> <span class="nav-text">做法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码："><span class="nav-number">3.</span> <span class="nav-text">代码：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义："><span class="nav-number">1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案："><span class="nav-number">2.</span> <span class="nav-text">解决方案：</span></a></li></ol></div>
             
 
           </div>
