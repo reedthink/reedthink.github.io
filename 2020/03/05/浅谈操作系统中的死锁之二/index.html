@@ -102,25 +102,25 @@
 
 
 
-  <meta name="description" content="题目链接题意：其实应该是子序列查询。解析：设nex[i][j]表示s串中第i后面第一个字符为(j+’a’)的位置(0&amp;lt;=j&amp;lt;26),规定s串的下标从1开始,如果不存在这样的位置则nex[i][j]=-1。对于每次查询，按顺序枚举串t的所有字符，每次优先匹配可以匹配的最小位置进行贪心。更正式的说，最开始我们设now=0,每次枚举到串t的位置i，我们使得now=nex[now][t[i]-">
-<meta name="keywords" content="字符串">
+  <meta name="description" content="上一篇简单介绍了OS中的死锁，今天分析死锁的解决方案。">
+<meta name="keywords" content="操作系统">
 <meta property="og:type" content="article">
-<meta property="og:title" content="牛客 子串查询(实际上是子序列匹配">
-<meta property="og:url" content="http://yoursite.com/2019/10/26/牛客-子串查询-实际上是子序列匹配/index.html">
+<meta property="og:title" content="浅谈操作系统中的死锁之二">
+<meta property="og:url" content="http://yoursite.com/2020/03/05/浅谈操作系统中的死锁之二/index.html">
 <meta property="og:site_name" content="zzuli_hanjk&#39;s blog">
-<meta property="og:description" content="题目链接题意：其实应该是子序列查询。解析：设nex[i][j]表示s串中第i后面第一个字符为(j+’a’)的位置(0&amp;lt;=j&amp;lt;26),规定s串的下标从1开始,如果不存在这样的位置则nex[i][j]=-1。对于每次查询，按顺序枚举串t的所有字符，每次优先匹配可以匹配的最小位置进行贪心。更正式的说，最开始我们设now=0,每次枚举到串t的位置i，我们使得now=nex[now][t[i]-">
+<meta property="og:description" content="上一篇简单介绍了OS中的死锁，今天分析死锁的解决方案。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-26T06:41:52.558Z">
+<meta property="og:updated_time" content="2020-03-07T01:15:08.019Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="牛客 子串查询(实际上是子序列匹配">
-<meta name="twitter:description" content="题目链接题意：其实应该是子序列查询。解析：设nex[i][j]表示s串中第i后面第一个字符为(j+’a’)的位置(0&amp;lt;=j&amp;lt;26),规定s串的下标从1开始,如果不存在这样的位置则nex[i][j]=-1。对于每次查询，按顺序枚举串t的所有字符，每次优先匹配可以匹配的最小位置进行贪心。更正式的说，最开始我们设now=0,每次枚举到串t的位置i，我们使得now=nex[now][t[i]-">
+<meta name="twitter:title" content="浅谈操作系统中的死锁之二">
+<meta name="twitter:description" content="上一篇简单介绍了OS中的死锁，今天分析死锁的解决方案。">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/10/26/牛客-子串查询-实际上是子序列匹配/">
+  <link rel="canonical" href="http://yoursite.com/2020/03/05/浅谈操作系统中的死锁之二/">
 
 
 
@@ -130,7 +130,7 @@
   };
 </script>
 
-  <title>牛客 子串查询(实际上是子序列匹配 | zzuli_hanjk's blog</title>
+  <title>浅谈操作系统中的死锁之二 | zzuli_hanjk's blog</title>
   
 
 
@@ -318,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/26/牛客-子串查询-实际上是子序列匹配/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/05/浅谈操作系统中的死锁之二/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zzuli_hanjk">
@@ -335,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">牛客 子串查询(实际上是子序列匹配
+          <h1 class="post-title" itemprop="name headline">浅谈操作系统中的死锁之二
 
               
             
@@ -361,12 +361,24 @@
                 
               
 
-              <time title="创建时间：2019-10-26 14:41:26 / 修改时间：14:41:52" itemprop="dateCreated datePublished" datetime="2019-10-26T14:41:26+08:00">2019-10-26</time>
+              <time title="创建时间：2020-03-05 08:13:41" itemprop="dateCreated datePublished" datetime="2020-03-05T08:13:41+08:00">2020-03-05</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-07 09:15:08" itemprop="dateModified" datetime="2020-03-07T09:15:08+08:00">2020-03-07</time>
               
             
           </span>
@@ -407,8 +419,35 @@
       
 
       
-        <h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a><a href="https://ac.nowcoder.com/acm/contest/1083/B" target="_blank" rel="noopener">题目链接</a></h2><h3 id="题意：其实应该是子序列查询。"><a href="#题意：其实应该是子序列查询。" class="headerlink" title="题意：其实应该是子序列查询。"></a>题意：其实应该是子序列查询。</h3><h3 id="解析："><a href="#解析：" class="headerlink" title="解析："></a>解析：</h3><p>设nex[i][j]表示s串中第i后面第一个字符为(j+’a’)的位置(0&lt;=j&lt;26),规定s串的下标从1开始,如果不存在这样的位置则nex[i][j]=-1。对于每次查询，按顺序枚举串t的所有字符，每次优先匹配可以匹配的最小位置进行贪心。更正式的说，最开始我们设now=0,每次枚举到串t的位置i，我们使得now=nex[now][t[i]-‘a’],如果中途now=-1了，说明串t不是s的子串，否则串t是s的子串。因此我们可以用一个队列辅助来求出nex数组，就可以在线性时间内解决这道题。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> n, k, nex[maxn][<span class="number">26</span>];</span><br><span class="line"><span class="keyword">char</span> patt[<span class="number">55</span>], s[maxn];</span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q[<span class="number">26</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>, s + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        q[s[i] - <span class="string">'a'</span>].push(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">26</span>; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!q[j].empty())</span><br><span class="line">            nex[<span class="number">0</span>][j] = q[j].front();</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            nex[<span class="number">0</span>][j] = <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        q[s[i] - <span class="string">'a'</span>].pop();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">26</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (!q[j].empty())</span><br><span class="line">                nex[i][j] = q[j].front();</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                nex[i][j] = <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (k--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>, patt + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> now = <span class="number">0</span>, f = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; patt[i]; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            now = nex[now][patt[i] - <span class="string">'a'</span>];</span><br><span class="line">            <span class="keyword">if</span> (now == <span class="number">-1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                f = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (f)</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"YES"</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"NO"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>上一篇简单介绍了OS中的死锁，今天分析死锁的解决方案。<br><a id="more"></a></p>
+<h2 id="预防死锁"><a href="#预防死锁" class="headerlink" title="预防死锁"></a>预防死锁</h2><p>预防死锁就要从死锁的四个必要条件入手，破坏了这四个条件中的一个或几个，就可以解决死锁。</p>
+<h3 id="破坏“请求和保持”条件"><a href="#破坏“请求和保持”条件" class="headerlink" title="破坏“请求和保持”条件"></a>破坏“请求和保持”条件</h3><p>系统需要保证做到：当一个进程在请求资源时，它不能持有不可抢占资源。通过以下两种协议可以实现。</p>
+<h4 id="第一种协议"><a href="#第一种协议" class="headerlink" title="第一种协议"></a>第一种协议</h4><p>该协议规定，所有进程在开始运行之前，必须一次性地申请其在整个运行过程中所需的全部资源。此时若系统有足够的资源分配给某进程，便可把其所需要的所有资源分配给它。<br>该协议类似于单任务，简单易行安全，缺点就是浪费资源（给一个进程a分配资源，但是a的生命周期中，很多资源只有短时间用到），进程经常会发生饥饿现象。</p>
+<h4 id="第二种协议"><a href="#第二种协议" class="headerlink" title="第二种协议"></a>第二种协议</h4><p>第二种协议是对第一种协议的改进，它允许一个进程只获取初期所需的资源后，就开始运行。进程运行过程中再逐步释放已分配给自己且用毕的全部资源，然后请求新的所需资源。</p>
+<h3 id="破坏“不可抢占”条件"><a href="#破坏“不可抢占”条件" class="headerlink" title="破坏“不可抢占”条件"></a>破坏“不可抢占”条件</h3><p>当一个已经保持某些不可抢占资源的进程，提出新要求但无法被满足的时候，它必须释放已经保持的所有资源，等以后需要时重新申请。<br>这种方法缺陷很大，因为某些不可抢占资源被中途释放，可能导致任务失败。而且可能会反复的申请与释放资源，导致进程被无限推迟。</p>
+<h3 id="破坏“循环等待”条件"><a href="#破坏“循环等待”条件" class="headerlink" title="破坏“循环等待”条件"></a>破坏“循环等待”条件</h3><p>操作系统对所有资源进行线性排序，进程申请资源必须按照序号从低到高进行申请，当进程占有高序号资源后，需要申请低序号资源<strong>A</strong>时，必须释放所有与<strong>A</strong>相同或更高序号的资源，从而破坏”循环等待“的条件。</p>
+<h2 id="避免死锁"><a href="#避免死锁" class="headerlink" title="避免死锁"></a>避免死锁</h2><p>在资源动态分配内存的过程中，防止系统进入不安全状态。</p>
+<h3 id="系统安全状态"><a href="#系统安全状态" class="headerlink" title="系统安全状态"></a>系统安全状态</h3><h4 id="安全状态"><a href="#安全状态" class="headerlink" title="安全状态"></a>安全状态</h4><p>该方法允许进程动态申请资源，但系统在分配资源之前，应先计算此次资源分配的安全性。如果此次分配不会导致系统进入不安全状态，才可以分配成功。否则令进程等待。</p>
+<h3 id="银行家算法"><a href="#银行家算法" class="headerlink" title="银行家算法"></a>银行家算法</h3><p>每一个进程进入系统时，它必须申明运行过程中，可能需要的各种资源的最大单元数目，其数目不应超过系统所拥有的资源总量。系统会在进程申请资源时进行判断，先判断是否有足够的资源分配给该进程，再判断将资源分配出去后，系统会不会处于不安全状态。如果上述两个条件都满足，系统就将资源分配出去，否则让进程继续等待。</p>
+<h4 id="银行家算法中的数据结构"><a href="#银行家算法中的数据结构" class="headerlink" title="银行家算法中的数据结构"></a>银行家算法中的数据结构</h4><p>为了实现银行家算法，必须设置四个数据结构：</p>
+<ol>
+<li>描述系统中可利用的资源<blockquote>
+<p>可利用资源向量Available</p>
+</blockquote>
+</li>
+<li>所有进程对资源的最大需求<blockquote>
+<p>最大需求矩阵Max</p>
+</blockquote>
+</li>
+<li>系统中的资源分配<blockquote>
+<p>分配矩阵Allocation</p>
+</blockquote>
+</li>
+<li>所有进程还需要多少资源的情况<blockquote>
+<p>需求矩阵Need</p>
+</blockquote>
+</li>
+</ol>
 
       
     </div>
@@ -432,7 +471,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/字符串/" rel="tag"># 字符串</a>
+            <a href="/tags/操作系统/" rel="tag"># 操作系统</a>
           
         </div>
       
@@ -445,8 +484,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/26/HDU-1358-Period/" rel="next" title="HDU-1358 Period">
-                <i class="fa fa-chevron-left"></i> HDU-1358 Period
+              <a href="/2020/03/04/浅谈操作系统中的死锁/" rel="next" title="浅谈操作系统中的死锁">
+                <i class="fa fa-chevron-left"></i> 浅谈操作系统中的死锁
               </a>
             
           </div>
@@ -454,10 +493,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/26/牛客-Barn-Echoes-扩展KMP/" rel="prev" title="牛客 Barn Echoes(扩展KMP)">
-                牛客 Barn Echoes(扩展KMP) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -660,7 +695,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目链接"><span class="nav-number">1.</span> <span class="nav-text">题目链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意：其实应该是子序列查询。"><span class="nav-number">1.1.</span> <span class="nav-text">题意：其实应该是子序列查询。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析："><span class="nav-number">1.2.</span> <span class="nav-text">解析：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#预防死锁"><span class="nav-number">1.</span> <span class="nav-text">预防死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#破坏“请求和保持”条件"><span class="nav-number">1.1.</span> <span class="nav-text">破坏“请求和保持”条件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一种协议"><span class="nav-number">1.1.1.</span> <span class="nav-text">第一种协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二种协议"><span class="nav-number">1.1.2.</span> <span class="nav-text">第二种协议</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#破坏“不可抢占”条件"><span class="nav-number">1.2.</span> <span class="nav-text">破坏“不可抢占”条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#破坏“循环等待”条件"><span class="nav-number">1.3.</span> <span class="nav-text">破坏“循环等待”条件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#避免死锁"><span class="nav-number">2.</span> <span class="nav-text">避免死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统安全状态"><span class="nav-number">2.1.</span> <span class="nav-text">系统安全状态</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安全状态"><span class="nav-number">2.1.1.</span> <span class="nav-text">安全状态</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#银行家算法"><span class="nav-number">2.2.</span> <span class="nav-text">银行家算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#银行家算法中的数据结构"><span class="nav-number">2.2.1.</span> <span class="nav-text">银行家算法中的数据结构</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
