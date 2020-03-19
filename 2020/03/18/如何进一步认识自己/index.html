@@ -102,25 +102,25 @@
 
 
 
-  <meta name="description" content="操作系统中的死锁，来源于多个进程对资源的争夺。在一组进程发生死锁的情况下，该组中每一个进程都在等待，等待另一个死锁进程所占有的资源。换句话说，每个进程都在等待其他进程当前占有的资源。从逻辑上讲，这组进程就陷入了一种“悖论”，无法自然解决。">
-<meta name="keywords" content="操作系统">
+  <meta name="description" content="人们常说，适合的才是最好的。为了判断什么适合自己，就需要加深对自己的了解，对自我的了解。">
+<meta name="keywords" content="思绪">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈操作系统中的死锁">
-<meta property="og:url" content="http://yoursite.com/2020/03/04/浅谈操作系统中的死锁/index.html">
+<meta property="og:title" content="如何进一步认识自己">
+<meta property="og:url" content="http://yoursite.com/2020/03/18/如何进一步认识自己/index.html">
 <meta property="og:site_name" content="zzuli_hanjk&#39;s blog">
-<meta property="og:description" content="操作系统中的死锁，来源于多个进程对资源的争夺。在一组进程发生死锁的情况下，该组中每一个进程都在等待，等待另一个死锁进程所占有的资源。换句话说，每个进程都在等待其他进程当前占有的资源。从逻辑上讲，这组进程就陷入了一种“悖论”，无法自然解决。">
+<meta property="og:description" content="人们常说，适合的才是最好的。为了判断什么适合自己，就需要加深对自己的了解，对自我的了解。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-04T13:28:17.070Z">
+<meta property="og:updated_time" content="2020-03-18T04:06:35.873Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈操作系统中的死锁">
-<meta name="twitter:description" content="操作系统中的死锁，来源于多个进程对资源的争夺。在一组进程发生死锁的情况下，该组中每一个进程都在等待，等待另一个死锁进程所占有的资源。换句话说，每个进程都在等待其他进程当前占有的资源。从逻辑上讲，这组进程就陷入了一种“悖论”，无法自然解决。">
+<meta name="twitter:title" content="如何进一步认识自己">
+<meta name="twitter:description" content="人们常说，适合的才是最好的。为了判断什么适合自己，就需要加深对自己的了解，对自我的了解。">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/03/04/浅谈操作系统中的死锁/">
+  <link rel="canonical" href="http://yoursite.com/2020/03/18/如何进一步认识自己/">
 
 
 
@@ -130,7 +130,7 @@
   };
 </script>
 
-  <title>浅谈操作系统中的死锁 | zzuli_hanjk's blog</title>
+  <title>如何进一步认识自己 | zzuli_hanjk's blog</title>
   
 
 
@@ -318,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/04/浅谈操作系统中的死锁/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/18/如何进一步认识自己/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zzuli_hanjk">
@@ -335,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">浅谈操作系统中的死锁
+          <h1 class="post-title" itemprop="name headline">如何进一步认识自己
 
               
             
@@ -361,7 +361,7 @@
                 
               
 
-              <time title="创建时间：2020-03-04 20:08:55 / 修改时间：21:28:17" itemprop="dateCreated datePublished" datetime="2020-03-04T20:08:55+08:00">2020-03-04</time>
+              <time title="创建时间：2020-03-18 12:01:47 / 修改时间：12:06:35" itemprop="dateCreated datePublished" datetime="2020-03-18T12:01:47+08:00">2020-03-18</time>
             
 
             
@@ -407,25 +407,7 @@
       
 
       
-        <p>操作系统中的死锁，来源于多个进程对资源的争夺。在一组进程发生死锁的情况下，该组中每一个进程都在等待，等待另一个死锁进程所占有的资源。换句话说，每个进程都在等待其他进程当前占有的资源。从逻辑上讲，这组进程就陷入了一种“悖论”，无法自然解决。<br><a id="more"></a></p>
-<h2 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h2><blockquote>
-<p>如果一组进程的每一个进程都在等待仅由该组进程中的其他进程才能引发的事件，那么该组进程是死锁的。  </p>
-</blockquote>
-<p>当然，早期的单用户单任务操作系统就不会出现死锁，因为进程是逐个执行的。但是现在的操作系统都是多用户多任务操作系统，并且许多场景都需要并行执行，所以我们必须考虑如何解决死锁。</p>
-<h2 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h2><ol>
-<li>预防死锁。</li>
-<li>避免死锁。不是事先采取限制措施，而是在资源动态分配过程中，用某种方法防止进入不安全状态，从而可以避免发生死锁。</li>
-<li>检测死锁。此方法无须事先采取任何限制性措施，允许进程在运行过程中发生死锁。但是可以通过检测死锁的发生，然后采取适当措施，把进程从死锁中解脱出来。</li>
-<li>解除死锁。当检测到系统中已发生死锁时，就采取相应措施，将进程从死锁状态中解脱出来。常用方法是撤销一些进程，回收他们的资源，将他们分配给已处于阻塞状态的进程，是其能继续运行。</li>
-</ol>
-<p>上述方法，从1到4对死锁的防范程度逐渐减弱，但是对资源的利用率逐渐提高，并发程度提高。</p>
-<h2 id="产生死锁的必要条件："><a href="#产生死锁的必要条件：" class="headerlink" title="产生死锁的必要条件："></a>产生死锁的必要条件：</h2><ol>
-<li>互斥条件。进程对所分配到的资源进行排它性使用，即在一段时间内，某资源只能被一个进程占用。如果此时还有其他进程请求该资源，则请求进程只能等待，直至占有该资源的进程用毕释放。</li>
-<li>请求和保持条件。进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源已被其他进程占有，此时请求进程被阻塞，但对自己已获得的资源保持不放。</li>
-<li>不可抢占条件。进程已获得的资源在未使用完之前不能被抢占，只能在进程使用完时由自己释放。</li>
-<li>循环等待条件。在发生死锁时，必然存在一个进程-资源的循环链，即进程集合{P0,P1,P2,P3,…,PN}中的P0在等待一个P1占用的资源，P1正在等待P2占用的资源，…… ， PN正在等待已被P0占用的资源。此时形成一条首尾衔接的循环链。</li>
-</ol>
-<p>这个死锁还有的挖，明天继续死锁之二。</p>
+        <p>人们常说，适合的才是最好的。为了判断什么适合自己，就需要加深对自己的了解，对自我的了解。<br><a id="more"></a><br>我认为，人的行为和决策会反映出人的潜意识。所以，我们可以通过观察自己的行为和决策来加深对自己的认识。</p>
 
       
     </div>
@@ -449,7 +431,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/操作系统/" rel="tag"># 操作系统</a>
+            <a href="/tags/思绪/" rel="tag"># 思绪</a>
           
         </div>
       
@@ -462,8 +444,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/03/HTTP学习手记-一/" rel="next" title="HTTP学习手记(一)">
-                <i class="fa fa-chevron-left"></i> HTTP学习手记(一)
+              <a href="/2020/03/09/面向对象概念备忘/" rel="next" title="面向对象概念备忘">
+                <i class="fa fa-chevron-left"></i> 面向对象概念备忘
               </a>
             
           </div>
@@ -471,10 +453,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/03/05/浅谈操作系统中的死锁之二/" rel="prev" title="浅谈操作系统中的死锁之二">
-                浅谈操作系统中的死锁之二 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -519,17 +497,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -668,23 +637,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义："><span class="nav-number">1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案："><span class="nav-number">2.</span> <span class="nav-text">解决方案：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#产生死锁的必要条件："><span class="nav-number">3.</span> <span class="nav-text">产生死锁的必要条件：</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
