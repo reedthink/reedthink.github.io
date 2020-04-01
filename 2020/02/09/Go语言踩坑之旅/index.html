@@ -115,7 +115,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200209162021534.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200209163136975.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200209163028785.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6dWxpX2hhbmpr,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2020-02-13T06:31:10.172Z">
+<meta property="og:updated_time" content="2020-03-25T10:10:00.044Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go语言踩坑之旅">
 <meta name="twitter:description" content="前言：友人寻我合做一个小网站。我们最终决定采用Go语言写后端。因此我开始了Golang踩坑之旅。">
@@ -272,7 +272,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">46</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">47</span></a>
 
   </li>
 
@@ -384,7 +384,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-13 14:31:10" itemprop="dateModified" datetime="2020-02-13T14:31:10+08:00">2020-02-13</time>
+                <time title="修改时间：2020-03-25 18:10:00" itemprop="dateModified" datetime="2020-03-25T18:10:00+08:00">2020-03-25</time>
               
             
           </span>
@@ -440,6 +440,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">require (</span><br><span class="line">	github.com/reedthink/MyMod v1.54.2</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">replace github.com/reedthink/MyMod =&gt; /home/hhh/FuckGoMod</span><br></pre></td></tr></table></figure>
 <p>ok，再次运行，成功！</p>
 <p>附参考链接：<a href="https://segmentfault.com/a/1190000018398763?utm_campaign=studygolang.com&amp;utm_medium=studygolang.com&amp;utm_source=studygolang.com" target="_blank" rel="noopener">https://segmentfault.com/a/1190000018398763?utm_campaign=studygolang.com&amp;utm_medium=studygolang.com&amp;utm_source=studygolang.com</a></p>
+<h3 id="gomod模式下调用项目内的包"><a href="#gomod模式下调用项目内的包" class="headerlink" title="gomod模式下调用项目内的包"></a>gomod模式下调用项目内的包</h3><p>不需要为子文件夹新建go.mod，我们只需要在导包时加入”当前文件夹/要导入的包所在的子文件夹”  </p>
+<p>例如： <code>import &quot;myList/models&quot;</code></p>
+<h3 id="现在我的解决方案："><a href="#现在我的解决方案：" class="headerlink" title="现在我的解决方案："></a>现在我的解决方案：</h3><ul>
+<li>项目内的包，直接使用上面的方法调用</li>
+<li>不在项目内的包，推送到github上</li>
+</ul>
 
       
     </div>
@@ -558,7 +564,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -693,7 +699,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#坑点一：静态文件打包进二进制文件"><span class="nav-number">1.</span> <span class="nav-text">坑点一：静态文件打包进二进制文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法："><span class="nav-number">1.1.</span> <span class="nav-text">解决方法：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#坑点二：本地包导入"><span class="nav-number">2.</span> <span class="nav-text">坑点二：本地包导入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一种解决方案"><span class="nav-number">2.1.</span> <span class="nav-text">第一种解决方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二种解决方案"><span class="nav-number">2.2.</span> <span class="nav-text">第二种解决方案</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#坑点一：静态文件打包进二进制文件"><span class="nav-number">1.</span> <span class="nav-text">坑点一：静态文件打包进二进制文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法："><span class="nav-number">1.1.</span> <span class="nav-text">解决方法：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#坑点二：本地包导入"><span class="nav-number">2.</span> <span class="nav-text">坑点二：本地包导入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一种解决方案"><span class="nav-number">2.1.</span> <span class="nav-text">第一种解决方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二种解决方案"><span class="nav-number">2.2.</span> <span class="nav-text">第二种解决方案</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gomod模式下调用项目内的包"><span class="nav-number">3.</span> <span class="nav-text">gomod模式下调用项目内的包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#现在我的解决方案："><span class="nav-number">4.</span> <span class="nav-text">现在我的解决方案：</span></a></li></ol></div>
             
 
           </div>
